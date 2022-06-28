@@ -1,4 +1,4 @@
-{
+@{
   "name": "nu_nu",
   "version": "1.0.0",
   "description": "",
@@ -16,10 +16,5 @@
   "bugs": {
     "url": "https://github.com/NKhawm/nunu/issues"
   },
-  "homepage": "https://github.com/NKhawm/nunu#readme",
-  "dependencies": {
-    "postcss": "^8.4.14",
-    "prefixer": "^0.0.3",
-    "tailwindcss": "^3.1.4"
-  }
+  "homepage": "https://github.com/NKhawm/nunu#readme"
 }
