@@ -403,7 +403,7 @@ embed,
 object {
   display: block;
   /* 1 */
-  vertical-align: middle;
+  /* vertical-align: middle; */
   /* 2 */
 }
 
@@ -540,7 +540,7 @@ video {
   --tw-shadow-colored: 0 0 #0000;
   --tw-blur:  ;
   --tw-brightness:  ;
-  --tw-contrast:  ;
+  --tw-contrast:  
   --tw-grayscale:  ;
   --tw-hue-rotate:  ;
   --tw-invert:  ;
@@ -557,3 +557,83 @@ video {
   --tw-backdrop-saturate:  ;
   --tw-backdrop-sepia:  ;
 }
+
+#sun{
+  animation: sun 5s linear;
+  position: relative;
+  animation-fill-mode: forwards;
+ 
+}
+@keyframes sun{
+  from{
+    transform: translateY(-400px);
+  }
+  to{
+    transform: translateY(100px);
+    
+  }
+}
+
+  #bird_one{
+    animation: bird1 2s linear;
+    position:relative;
+    animation-iteration-count: infinite;
+
+  }
+  @keyframes bird1 {
+    from{
+      transform: translateY(0px);
+      transform: translateX(-800px);
+    }
+    
+    to{
+      transform: translateY(-40px);
+    }
+    
+  }
+  #bird_two{
+    animation: bird2 8s linear;
+    position:relative;
+    animation-iteration-count:infinite;
+
+  }
+  @keyframes bird2 {
+    from{
+      transform: translateY(0px);
+      transform: translateX(800px);
+    }
+    
+    to{
+      transform: translateY(40px);
+    }
+    
+  }
+
+  #bird_three{
+    animation: bird3 8s linear;
+    position:relative;
+    animation-iteration-count:infinite;
+    animation-fill-mode: forwards;
+
+  }
+  @keyframes bird3 {
+    from{
+      transform: translateX(-1000px);
+    }
+      
+     
+    50%{
+      transform: translateY(100px);
+    }
+    
+    to{
+      
+       transform: translateX(-100px); 
+    }
+    
+  }
+
+
+
+
+   
