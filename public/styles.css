@@ -403,7 +403,7 @@ embed,
 object {
   display: block;
   /* 1 */
-  /* vertical-align: middle; */
+   vertical-align: middle; 
   /* 2 */
 }
 
@@ -569,7 +569,7 @@ video {
     transform: translateY(-400px);
   }
   to{
-    transform: translateY(100px);
+    transform: translateY(50px);
     
   }
 }
