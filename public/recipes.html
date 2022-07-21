@@ -17,7 +17,7 @@
     <!-- <script src="https://kit.fontawesome.com/9346465f4f.js" crossorigin="anonymous"></script> -->
 </head>
 
-  <body class="font-serif bg-local bg-yellow-300 " > 
+  <body class="font-serif bg-local bg-black " > 
     <nav class=" p-2 2xl:p-5 bg-[#353434] shadow 2xl:flex 2xl:items-center 2xl:justify-between w-full ">
         <div class="flex justify-between items-center ">
           <span class="text-2xl font-[Poppins] cursor-pointer text-white">
@@ -90,25 +90,29 @@
           <h2 class="text-center text-[10px] my-2 text-gray-700 ">Looking for inspiration? Your're in the right place</h2>
         <nav class="  p-2 h-[7vh] 2xl:p-5 bg-[#353434] shadow z-10 2xl:flex 2xl:items-center 2xl:justify-between w-full ">
                 <div class="flex justify-between items-center ">
-                  <span class="text-2xl font-[Poppins] cursor-pointer text-white">
-                    <p class="h-12 2xl:h-16 inline">Recipes</p>
-                   
-                  </span>
-            
+
                   <span class=" text-4xl 2xl:text-5xl cursor-pointer mx-2 2xl:hidden block">
                     <span class="iconify text-[#00adb6]" onclick="sub(this)"data-icon="quill:hamburger-sidebar"></data-icon=>"></span>
                     <!-- <ion-icon name="menu" onclick="Menu(this)"></ion-icon> -->
                   </span>
-                </div>
+                    <ul id="sub-menu"  class="  bg-[#353434] mt-[75px] lg:bg-[#353434] 2xl:flex 2xl:items-center   2xl:z-auto 2xl:static absolute text-white w-full left-0 2xl:w-auto 2xl:py-0 py-4 2xl:pl-0 pl-7 2xl:opacity-100 opacity-0 top-[-400px] transition-all ease-in duration-500  ">     
+                        <li><a class="hover:bg-[#ffd230] hover:text-gray-700 px-2 mt-4 rounded-full" href="#">Myanmar Cuisine Collection</a></li>
+                        <li><a class="hover:bg-[#ffd230] hover:text-gray-700 px-2 mt-4 rounded-full" href="#">Western Food</a></li>
+                        <li><a class="hover:bg-[#ffd230] hover:text-gray-700 px-2 mt-4 rounded-full" href="#">Cakes</a></li>
+                        <li><a class="hover:bg-[#ffd230] hover:text-gray-700 px-2 mt-4 rounded-full" href="#">Dessert</a></li>
+                        <li><a class="hover:bg-[#ffd230] hover:text-gray-700 px-2 mt-4 rounded-full" href="#">Baby and Children</a></li>
+                        
+                    </ul>
+                 
             
-                <ul id="sub-menu"  class="  bg-[#353434] mt-[90px] lg:bg-[#353434] 2xl:flex 2xl:items-center   2xl:z-auto 2xl:static absolute text-white w-full left-0 2xl:w-auto 2xl:py-0 py-4 2xl:pl-0 pl-7 2xl:opacity-100 opacity-0 top-[-400px] transition-all ease-in duration-500  ">     
-                <li><a class="hover:bg-[#ffd230] hover:text-gray-700 px-2 pb-4 rounded-full" href="#">Myanmar Cuisine Collection</a></li>
-                <li><a class="hover:bg-[#ffd230] hover:text-gray-700 px-2 pb-4 rounded-full" href="#">Western Food</a></li>
-                <li><a class="hover:bg-[#ffd230] hover:text-gray-700 px-2 pb-4 rounded-full" href="#">Cakes</a></li>
-                <li><a class="hover:bg-[#ffd230] hover:text-gray-700 px-2 pb-4 rounded-full" href="#">Dessert</a></li>
-                <li><a class="hover:bg-[#ffd230] hover:text-gray-700 px-2 pb-4 rounded-full" href="#">Baby and Children</a></li>
+                  <span class="text-2xl font-[Poppins] cursor-pointer text-white">
+                    <p class="h-12 text-[18px] 2xl:h-16 inline">Recipes</p>
+                   
+                  </span>
+                </div>
                 
-            </ul>
+            
+                
             </nav>
             <script>
                 function sub(e){
@@ -139,33 +143,20 @@
     
                 <!-- grid -->
                 <div class="container my-48 grid__wrapper grid grid-cols-[repeat(auto-fit,_minmax(300px,_1fr))] gap-16">
-                    <!-- nick -->
-                    <figure class="team-js">
-                        <img class="rounded-2xl object-cover w-full h-[22rem]" src="/dist/assets/images/TEAM/Nick.jpg"
-                            alt="nick holding camera" srcset="">
-                        <p class="font-bold text-base my-9">Nick <span
-                                class="team__role text-xl absolute ml-4 -mt-2">—founder</span></p>
-                        <p class="about__info-js hidden pb-8 text-base">In the early days, Nick had been living a bit of
-                            a
-                            double life.
-                            A trusted
-                            corporate
-                            communications and events professional during office hours and a keen multimedia creator for
-                            the
-                            rest of the
-                            time. It wasn’t his plan to merge these two worlds, but it’s where he found a sweet spot
-                            that
-                            would benefit
-                            both and accelerate his career.
-                        </p>
-                        <span class="line-break">
-                            <svg class="w-full" width="389" height="18" viewBox="0 0 389 18" fill="none"
-                                xmlns="http://www.w3.org/2000/svg">
-                                <path
-                                    d="M3.1377 5.58958C67.4064 -0.98335 132.708 6.88257 196.876 11.0453C240.4 13.8689 283.89 14.6627 327.487 14.6627C347.106 14.6627 366.725 14.6627 386.344 14.6627"
-                                    stroke="#09A501" stroke-width="5" stroke-linecap="square" />
-                            </svg>
-                        </span>
+                    <!-- Fish noodle soup -->
+                    <figure class="team-js mx-auto">
+                        <a href=""><img class="rounded-t-2xl object-cover w-full h-[22rem]" src="/public/images/Moh Hin Gar.jpg"
+                            alt="nick holding camera" srcset=""></a>
+                            <button type="button" class="collapsible text-center text-white cursor-pointer p-[18px] w-full text-left  outline-0 bg-[#27b4ae]  active:bg-[#27b4ae] hover:bg[#27b4ae] ">မုန့်ဟင်းခါး (Fish Noodle Soup) + </button>
+                                   <div class="content py-0 px-[18px] hidden bg-[#353434] ">
+                                   <p class="py-4 text-gray-300 ">
+                                       <span>Serve : 6 </span><br>
+                                       <span>Preparation time : 1 hour </span><br>
+                                       <span>Cooking time :1 hour </span><br>
+                                       <a href="#"><span class="underline hover:text-[#ffd230]" >Click here for full recipe </span></a>
+                                    </p>
+                                   </div>
+                        
                     </figure>
     
                     <!-- fi -->
@@ -303,7 +294,22 @@
         </section>
     
     
-
+        <script>
+            var coll = document.getElementsByClassName("collapsible");
+            var i;
+            
+            for (i = 0; i < coll.length; i++) {
+              coll[i].addEventListener("click", function() {
+                this.classList.toggle("active");
+                var content = this.nextElementSibling;
+                if (content.style.display === "block") {
+                  content.style.display = "none";
+                } else {
+                  content.style.display = "block";
+                }
+              });
+            }
+            </script>
 
 
 
