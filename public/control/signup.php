@@ -2,8 +2,11 @@
 session_start();
 //$_SESSION;
 
-include("/public/model/connection.php");
- include("../control/function.php");?>
+ include("/public/model/connection.php");
+ include("../control/function.php");
+// include("../view/header.php")
+ 
+ ?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -29,10 +32,16 @@ include("/public/model/connection.php");
    
 </head>
 <body class="font-serif bg-[url('../images/bg1.jpg')]">
-<style>
-       .error {color:red;} 
-        </style>
+  <!-- style -->
+<style>.error {color:red;} </style>
+<!-- Nav bar -->
+<?php include("../view/header.php");  ?>
+
+
+
+<!-- php -->
 <?php
+
 $nameErr = $emailErr = $phoneErr = $ageErr = $passwordErr = $confirmErr = "";
 
 if ($_SERVER['REQUEST_METHOD'] == "POST")
@@ -103,116 +112,11 @@ if ($_SERVER['REQUEST_METHOD'] == "POST")
 
 
 ?>
- <nav class=" p-2 xl:p-5 bg-[#353434] shadow xl:flex xl:items-center xl:justify-between w-full ">
-        <div class="flex justify-between items-center ">
-          <span class="text-2xl font-[Poppins] cursor-pointer text-white">
-            <a href="home.html"><img class="h-10 xl:h-12 inline"
-              src="../images/logo.png"></a>
-           
-          </span>
-    
-          <span class=" text-4xl xl:text-5xl cursor-pointer mx-2 lg:hidden block">
-            <span class="iconify text-[#00adb6]" onclick="Menu(this)" data-icon="fa6-solid:burger"></span>
-            <!-- <ion-icon name="menu" onclick="Menu(this)"></ion-icon> -->
-          </span>
-        </div>
-    
-        <ul class=" bg-black -mt-4 lg:bg-[#353434] xl:flex xl:items-center   xl:z-auto xl:static absolute text-white w-full left-0 xl:w-auto xl:py-0 py-4 xl:pl-0 pl-7 xl:opacity-100 opacity-0 top-[-400px] transition-all ease-in duration-500  ">
-          <li class="mx-4 my-1 xl:my-0">
-            <a href="#" class="md:text-sm hover:text-[#ffd230] duration-500">
-              <ion-icon class="text-lg text-[#27b4ae] mr-1" name="home">
-              </ion-icon>Home (အိမ်)</a>
-            
-          </li>
+<h1 class="text-xl text-center my-4">Register</h1>
+<div class="border-2 p-6 md:w-1/2 md:mx-auto">
 
-          <li class="mx-4 my-1 xl:my-0">
-            <a href="#" class="  md:text-sm hover:text-[#ffd230] duration-500">
-              <ion-icon class="text-lg text-[#27b4ae] mr-1" name="receipt">
-              </ion-icon>Recipes (ချက်ပြုတ်နည်းများ)</a>
-          </li>
 
-          <li class="mx-4 my-1 xl:my-0">
-            <a href="#" class="md:text-sm hover:text-[#ffd230] duration-500">
-              <ion-icon class="text-lg text-[#27b4ae] mr-1" name="videocam">
-              </ion-icon>Videos (ဗီဒီယိုများ)</a>
-          </li>
-
-          <li class="mx-4 my-1 xl:my-0">
-            <a href="#" class="md:text-sm hover:text-[#ffd230] duration-500">
-              <ion-icon class="text-lg text-[#27b4ae] mr-1" name="reader">
-              </ion-icon>Blogs (ဘလော့ဂ်များ)</a>
-          </li>
-
-          <li class="mx-4 mt-1 mb-3 xl:my-0">
-            <a href="#" class="md:text-sm hover:text-[#ffd230] duration-500">
-              <ion-icon class="text-lg text-[#27b4ae] mr-1" name="chatbubbles">
-              </ion-icon>Contact (ဆက်သွယ်ရန်)</a>
-          </li>
-    
-          <button class=" bg-[#27b4ae] md:text-sm text-gray-700 font-[Poppins] pointer-cursor duration-500 px-4 py-2 mx-4 hover:bg-[#ffafd7] hover:text-black rounded-full "> <a href="#"></a>
-            Register
-          </button>
-          <button class="bg-[#27b4ae] md:text-sm text-gray-700 font-[Poppins] pointer-cursor duration-500 px-4 py-2 mx-4 hover:bg-[#ffafd7] hover:text-black rounded-full "> <a href="#"></a>
-            Log in
-          </button>
-   
-        </ul>
-      </nav>
-    
-    
-      <script>
-        function Menu(e){
-          let list = document.querySelector('ul');
-          e.name === 'menu' ? (e.name = "close",
-          list.classList.add('top-[80px]') , 
-          list.classList.add('opacity-100')) :( e.name = "menu" ,
-          list.classList.remove('top-[80px]'),
-          list.classList.remove('opacity-100'))
-        }
-      </script>
-   
-
-    <h1 class="text-center">Signup</h1>
-    <!-- <div class="box">
-        <form action="" method="post">
-            
-            <label for="user_name">Username</label><br>
-            <input type="text" name="user_name"><br>
-            <span class="error"><?php //echo $nameErr; ?></span>
-<br><br>
-
-            <label for="email">Email</label><br>
-            <input type="text" name="email"><br>
-            <span class="error"><?php //echo $emailErr; ?></span>
-<br><br>
-
-            
-            <label for="phone number">Phone number</label><br>
-            <input type="text" name="phone_number"><br>
-            <span class="error"><?php //echo $phoneErr; ?></span>
-<br><br>
-            
-            <label for="age">Age</label><br>
-            <input type="number" name="age"><br>
-            <span class="error"><?php //echo $ageErr; ?></span>
-<br><br>
-            
-            <label for="password">Password</label><br>
-            <input type="password" name="user_password"><br>
-            <span class="error"><?php //echo $passwordErr; ?></span>
-<br><br>
-
-            <label for="confirm">Confirm Password</label><br>
-            <input type="password" name="confirm_password"><br>
-            <span class="error"><?php //echo $confirmErr; ?></span>
-<br><br>
-            <input type="submit" value="Submit" name="submit"><br><br>
-            <p>If you are already registered, <a href="login.php"> Log in </a>here.</p>
-
-        </form>
-    </div> -->
-
-    <form>
+    <form class="text-center" >
   <div class="form-row ">
     <div class="form-group col-md-6">
       <label for="inputEmail4">Email</label>
@@ -249,8 +153,11 @@ if ($_SERVER['REQUEST_METHOD'] == "POST")
     </div>
   </div>
   
-  <button type="submit" class="btn btn-primary">Sign in</button>
+  <button type="submit" class="btn btn-primary bg-info border-none ">Sign up</button>
 </form>
+<br>
+<p class="text-center" >Already have an account with us? <a href="#">Sign in </a> here.</p>
+</div>
     
 </body>
 </html>

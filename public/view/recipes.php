@@ -71,7 +71,7 @@
           <button class=" bg-[#27b4ae] md:text-xl text-gray-700 font-[Poppins] pointer-cursor duration-500 px-6 py-2 mx-4 hover:bg-[#ffafd7] hover:text-black rounded-full "> <a href="#"></a>
             Register
           </button>
-          <button class="bg-[#27b4ae] md:text-xl text-gray-700 font-[Poppins] pointer-cursor duration-500 px-6 py-2 mx-4 hover:bg-[#ffafd7] hover:text-black rounded-full "> <a href="#"></a>
+          <button class="bg-[#27b4ae] md:text-xl text-gray-700 font-[Poppins] pointer-cursor duration-500 px-6 py-2 mx-4 hover:bg-[#ffafd7] hover:text-black rounded-full "> <a href="../control/signup.php"></a>
             Log in
           </button>
    
@@ -89,6 +89,9 @@
           list.classList.remove('opacity-100'))
         }
       </script>
+
+      <!-- sub nav -->
+      
       <ul class="nav nav-pills bg-gray-900 ">
         <li class="nav-item">
           <a class="nav-link active bg-info md:text-xl " href="#">မြန်မာအစားစာ</a>

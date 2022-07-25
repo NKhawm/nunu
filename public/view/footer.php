@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script src="https://cdn.tailwindcss.com"></script>
+        <script src="https://code.iconify.design/2/2.2.1/iconify.min.js"></script>
+        <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+      <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+      </head>
+      
+<body>
+    
+
+<footer class="w-full bg-[#27b4ae] h-auto ">
+    <div class="footer__wrapper flex flex-col mt-4 z-10 relative ">
+        <div class="flex flex-wrap flex-col text-center my-20">
+            <h3 class=" text-2xl md:text-4xl font-bold text-gray-700 md:leading-loose">မေးစရာ၊ အကြံပြုစရာ </h3>
+            <p class=" text-lg md:text-xl mb-16">များရှိရင် ဆက်သွယ်နိုင်ပါသည်။</p>
+            <button class="w-48 h-12 text-xl text-gray-700 font-semibold
+            bg-[#ffafd7] m-auto rounded-full hover:bg-[#ffc331] "> <a href="#"></a> ဆက်သွယ်ရန်</button>
+        </div>
+
+        <div class="flex flex-wrap flex-col text-center -pt-[180px] ">
+            <p class="font-bold">Follow us on social media:</p>
+            <div class="icon-wrapper mt-2">
+                <button class="btn mr-4	w-7">
+                    <ion-icon class="text-2xl  text-[#ffafd7] " name="logo-instagram"><a href="https://www.facebook.com/Nu-Nu-Kitchen-မေမေ့-မီးဖိုချောင်-104741924420555/?ref=pages_you_manage"></ion-icon></a></button>
+                <button class="btn mr-4  w-7">
+                    <ion-icon class="text-2xl  text-[#ffafd7] " name="logo-youtube"></ion-icon></button>
+                <button class="btn mr-4 w-7">
+                    <ion-icon class="text-2xl  text-[#ffafd7] "name="logo-facebook"></ion-icon></button>
+                <button class="btn mr-4  w-7">
+                    <ion-icon class="text-2xl  text-[#ffafd7] " name="logo-tiktok"></ion-icon></button>
+                
+            </div>
+        </div>  <br><br>
+        <p class="mx-auto text-sm">Own and Created by Niang Khawm Huai.</p>
+   
+</footer>
+
+
+
+
+</body>
+
+</html>
+
