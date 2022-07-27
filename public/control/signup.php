@@ -2,11 +2,11 @@
 session_start();
 //$_SESSION;
 
- include("/public/model/connection.php");
- include("../control/function.php");
-// include("../view/header.php")
- 
- ?>
+ include("../model/connection.php");
+ include("function.php");
+ include("../view/header.php"); 
+
+?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -35,12 +35,8 @@ session_start();
   <!-- style -->
 <style>.error {color:red;} </style>
 <!-- Nav bar -->
-<?php include("../view/header.php");  ?>
-
-
-
-<!-- php -->
-<?php
+<?php 
+ 
 
 $nameErr = $emailErr = $phoneErr = $ageErr = $passwordErr = $confirmErr = "";
 
@@ -48,7 +44,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST")
 
 
 { 
-    print_r($_POST);
+    //print_r($_POST);
    $username = $_POST['user_name']; 
    if(empty($username))
    {
@@ -97,67 +93,82 @@ if ($_SERVER['REQUEST_METHOD'] == "POST")
   $user_id = random_num(8);
    $query = "INSERT INTO users (user_id,user_name,email_address,phone_no,age,password) 
    VALUES ('$user_id','$username','$email','$phone_no','$age','$password')";
-   echo $query;
+   //echo $query;
    mysqli_query($con,$query);
 
 
 
-    header("Location:login.php");
+   header("Location:login.php");
+        echo "<script>alert('Register Completed. Sign in now.')</script>";
     die;
 }
 
 }
 
+ 
+ ?>
 
 
 
-?>
 <h1 class="text-xl text-center my-4">Register</h1>
-<div class="border-2 p-6 md:w-1/2 md:mx-auto">
+<div class="border-2 p-6 mx-6 md:w-[500px] md:mx-auto">
 
 
-    <form class="text-center" >
-  <div class="form-row ">
-    <div class="form-group col-md-6">
-      <label for="inputEmail4">Email</label>
-      <input type="email" class="form-control" id="inputEmail4" placeholder="Email">
-    </div>
-    <div class="form-group col-md-6">
-      <label for="inputPassword4">Password</label>
-      <input type="password" class="form-control" id="inputPassword4" placeholder="Password">
-    </div>
-  </div>
-  <div class="form-group">
-    <label for="inputAddress">Address</label>
-    <input type="text" class="form-control" id="inputAddress" placeholder="1234 Main St">
-  </div>
-  <div class="form-group">
-    <label for="inputAddress2">Address 2</label>
-    <input type="text" class="form-control" id="inputAddress2" placeholder="Apartment, studio, or floor">
-  </div>
-  <div class="form-row">
-    <div class="form-group col-md-6">
-      <label for="inputCity">City</label>
-      <input type="text" class="form-control" id="inputCity">
-    </div>
-    <div class="form-group col-md-4">
-      <label for="inputState">State</label>
-      <select id="inputState" class="form-control">
-        <option selected>Choose...</option>
-        <option>...</option>
-      </select>
-    </div>
-    <div class="form-group col-md-2">
-      <label for="inputZip">Zip</label>
-      <input type="text" class="form-control" id="inputZip">
-    </div>
-  </div>
+    <form class="text-center" method="post" enctype="multipart/form-data">
   
-  <button type="submit" class="btn btn-primary bg-info border-none ">Sign up</button>
+    <div class="form-group">
+      <label for="username">User Name</label>
+      <input type="text" class="form-control" id="inputusername" placeholder="Username" name="user_name">
+      <span class="error"><?php echo $nameErr; ?></span>
+    </div>
+    <div class="form-group">
+      <label for="email">Email</label>
+      <input type="text" class="form-control" id="inputEmail4" placeholder="Email" name="email">
+      <span class="error"><?php echo $emailErr; ?></span>
+    </div>
+  
+    <div class="form-row ">
+  <div class="form-group col-md-6">
+    <label for="inputNumber">Phone Number</label>
+    <input type="number" class="form-control" id="inputPhone" placeholder="Phone number" name="phone_number">
+    <span class="error"><?php echo $phoneErr; ?></span>
+  </div>
+  <div class="form-group col-md-6">
+    <label for="inputAge">Age</label>
+    <input type="number" class="form-control" id="inputAge" placeholder="Age" name="age">
+    <span class="error"><?php echo $ageErr; ?></span>
+  </div>
+</div>
+ 
+    
+  <div class="form-group">
+    <label for="inputPassword">Password</label>
+    <input type="password" class="form-control" id="inputPwd" placeholder="Password" name="user_password">
+    <span class="error"><?php echo $passwordErr; ?></span>
+  </div>
+  <div class="form-group">
+    <label for="inputConfirm">Confirm Password</label>
+    <input type="password" class="form-control" id="inputConfirm" placeholder="Confirm Password" name="confirm_password">
+    <span class="error"><?php echo $confirmErr; ?></span>
+  </div>
+  <div>
+  <!-- <label for="file">Profile Pic</label><br>
+            <input type="file" name="image"><br>
+            <span class="error"><?php //echo $fileErr; ?></span> -->
+  </div> 
+
+  
+  
+  <button type="submit" class="btn btn-primary bg-info border-none " name="submit">Sign up</button>
 </form>
 <br>
-<p class="text-center" >Already have an account with us? <a href="#">Sign in </a> here.</p>
+<p class="text-center" >Already have an account with us? <a  class="text-white p-2 rounded-xl"href="login.php">Sign in</a> here.</p>
 </div>
+<!-- footer -->
+<?php
+include("../view/footer.php");
+
+?>
     
 </body>
 </html>

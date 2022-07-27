@@ -19,7 +19,7 @@
   <nav class=" p-1 lg:p-2  bg-[#353434] shadow lg:flex lg:items-center lg:justify-between w-full ">
         <div class="flex justify-between items-center ">
           <span class="text-2xl font-[Poppins] cursor-pointer text-white">
-            <a href="home.html"><img class="h-10 lg:h-12 xl:h-14 "
+            <a href="home.php"><img class="h-10 lg:h-12 xl:h-14 "
               src="../images/logo.png"></a>
            
           </span>
@@ -30,42 +30,42 @@
           </span>
         </div>
     
-        <ul class=" bg-black -mt-4 lg:bg-[#353434] lg:flex lg:items-center   lg:z-auto lg:static absolute text-white w-full left-0 lg:w-auto lg:py-0 py-4 lg:pl-0 pl-7 lg:opacity-100 opacity-0 top-[-400px] transition-all ease-in duration-500  ">
+        <ul class=" text-white bg-black -mt-4 lg:bg-[#353434] lg:flex lg:items-center   lg:z-auto lg:static absolute text-white w-full left-0 lg:w-auto lg:py-0 py-4 lg:pl-0 pl-7 lg:opacity-100 opacity-0 top-[-400px] transition-all ease-in duration-500  ">
           <li class="mx-2 my-1 lg:my-0">
-            <a href="#" class="md:text-sm hover:text-[#ffd230] duration-500">
+            <a href="home.php" class="md:text-md hover:text-[#ffd230] duration-500">
               <ion-icon class="text-lg text-[#27b4ae] mr-1" name="home">
               </ion-icon>Home (အိမ်)</a>
             
           </li>
 
           <li class="mx-2 my-1 lg:my-0">
-            <a href="#" class="  md:text-sm hover:text-[#ffd230] duration-500">
+            <a href="recipes.php" class="  md:text-md hover:text-[#ffd230] duration-500">
               <ion-icon class="text-lg text-[#27b4ae] mr-1" name="receipt">
               </ion-icon>Recipes (ချက်ပြုတ်နည်းများ)</a>
           </li>
 
           <li class="mx-2 my-1 lg:my-0">
-            <a href="#" class="md:text-sm hover:text-[#ffd230] duration-500">
+            <a href="#" class="md:text-md hover:text-[#ffd230] duration-500">
               <ion-icon class="text-lg text-[#27b4ae] mr-1" name="videocam">
               </ion-icon>Videos (ဗီဒီယိုများ)</a>
           </li>
 
           <li class="mx-2 my-1 lg:my-0">
-            <a href="#" class="md:text-sm hover:text-[#ffd230] duration-500">
+            <a href="#" class="md:text-md hover:text-[#ffd230] duration-500">
               <ion-icon class="text-lg text-[#27b4ae] mr-1" name="reader">
               </ion-icon>Blogs (ဘလော့ဂ်များ)</a>
           </li>
 
           <li class="mx-2 mt-1 mb-3 lg:my-0">
-            <a href="#" class="md:text-sm hover:text-[#ffd230] duration-500">
+            <a href="#" class="md:text-md hover:text-[#ffd230] duration-500">
               <ion-icon class="text-lg text-[#27b4ae] mr-1" name="chatbubbles">
               </ion-icon>Contact (ဆက်သွယ်ရန်)</a>
           </li>
     
-          <button class=" bg-[#27b4ae] md:text-sm text-gray-700 font-[Poppins] pointer-cursor duration-500 px-4 py-2 mx-2 hover:bg-[#ffafd7] hover:text-black rounded-full "> <a href="#"></a>
+          <button class=" bg-[#27b4ae] md:text-md text-gray-700 font-[Poppins] pointer-cursor duration-500 px-4 py-2 mx-2 hover:bg-[#ffafd7] hover:text-black rounded-full "> <a href="../control/signup.php"></a>
             Register
           </button>
-          <button class="bg-[#27b4ae] md:text-sm text-gray-700 font-[Poppins] pointer-cursor duration-500 px-4 py-2 mx-2 hover:bg-[#ffafd7] hover:text-black rounded-full "> <a href="login.php"></a>
+          <button class="bg-[#27b4ae] md:text-md text-gray-700 font-[Poppins] pointer-cursor duration-500 px-4 py-2 mx-2 hover:bg-[#ffafd7] hover:text-black rounded-full "> <a href="../control/login.php"></a>
             Log in
           </button>
    

@@ -22,94 +22,30 @@
 </head>
 
   <body class="font-serif bg-local bg-black " > 
-    <nav class=" p-2 2xl:p-5 bg-[#353434] shadow 2xl:flex 2xl:items-center 2xl:justify-between w-full ">
-        <div class="flex justify-between items-center ">
-          <span class="text-2xl font-[Poppins] cursor-pointer text-white">
-            <a href="home.html"><img class="h-12 2xl:h-16 inline"
-              src="/public/images/logo.png"></a>
-           
-          </span>
-    
-          <span class=" text-4xl 2xl:text-5xl cursor-pointer mx-2 2xl:hidden block">
-            <span class="iconify text-[#00adb6]" onclick="Menu(this)" data-icon="fa6-solid:burger"></span>
-            <!-- <ion-icon name="menu" onclick="Menu(this)"></ion-icon> -->
-          </span>
-        </div>
-    
-        <ul class=" bg-black -mt-4 lg:bg-[#353434] 2xl:flex 2xl:items-center   2xl:z-auto 2xl:static absolute text-white w-full left-0 2xl:w-auto 2xl:py-0 py-4 2xl:pl-0 pl-7 2xl:opacity-100 opacity-0 top-[-400px] transition-all ease-in duration-500  ">
-          <li class="mx-4 my-1 2xl:my-0">
-            <a href="#" class="md:text-xl hover:text-[#ffd230] duration-500">
-              <ion-icon class="text-3xl text-[#27b4ae] mr-1" name="home">
-              </ion-icon>Home (အိမ်)</a>
-            
-          </li>
-
-          <li class="mx-4 my-1 2xl:my-0">
-            <a href="#" class="  md:text-xl hover:text-[#ffd230] duration-500">
-              <ion-icon class="text-3xl text-[#27b4ae] mr-1" name="receipt">
-              </ion-icon>Recipes (ချက်ပြုတ်နည်းများ)</a>
-          </li>
-
-          <li class="mx-4 my-1 2xl:my-0">
-            <a href="#" class="md:text-xl hover:text-[#ffd230] duration-500">
-              <ion-icon class="text-3xl text-[#27b4ae] mr-1" name="videocam">
-              </ion-icon>Videos (ဗီဒီယိုများ)</a>
-          </li>
-
-          <li class="mx-4 my-1 2xl:my-0">
-            <a href="#" class="md:text-xl hover:text-[#ffd230] duration-500">
-              <ion-icon class="text-3xl text-[#27b4ae] mr-1" name="reader">
-              </ion-icon>Blogs (ဘလော့ဂ်များ)</a>
-          </li>
-
-          <li class="mx-4 mt-1 mb-3 2xl:my-0">
-            <a href="#" class="md:text-xl hover:text-[#ffd230] duration-500">
-              <ion-icon class="text-3xl text-[#27b4ae] mr-1" name="chatbubbles">
-              </ion-icon>Contact (ဆက်သွယ်ရန်)</a>
-          </li>
-    
-          <button class=" bg-[#27b4ae] md:text-xl text-gray-700 font-[Poppins] pointer-cursor duration-500 px-6 py-2 mx-4 hover:bg-[#ffafd7] hover:text-black rounded-full "> <a href="#"></a>
-            Register
-          </button>
-          <button class="bg-[#27b4ae] md:text-xl text-gray-700 font-[Poppins] pointer-cursor duration-500 px-6 py-2 mx-4 hover:bg-[#ffafd7] hover:text-black rounded-full "> <a href="../control/signup.php"></a>
-            Log in
-          </button>
-   
-        </ul>
-      </nav>
-    
-    
-      <script>
-        function Menu(e){
-          let list = document.querySelector('ul');
-          e.name === 'menu' ? (e.name = "close",
-          list.classList.add('top-[80px]') , 
-          list.classList.add('opacity-100')) :( e.name = "menu" ,
-          list.classList.remove('top-[80px]'),
-          list.classList.remove('opacity-100'))
-        }
-      </script>
+<?php
+include("header.php");
+?>
 
       <!-- sub nav -->
       
       <ul class="nav nav-pills bg-gray-900 ">
         <li class="nav-item">
-          <a class="nav-link active bg-info md:text-xl " href="#">မြန်မာအစားစာ</a>
+          <a class="nav-link active bg-info text-sm " href="#">မြန်မာအစားစာ</a>
         </li>
         <li class="nav-item text-light">
-          <a class="nav-link md:text-xl  " href="#">အနောက်တိုင်းအစားအစာ</a>
+          <a class="nav-link text-sm  " href="#">အနောက်တိုင်းအစားအစာ</a>
         </li>
         <li class="nav-item text-light ">
-          <a class="nav-link md:text-xl " href="#">ကိတ်မုန့်မျိုးစုံ</a>
+          <a class="nav-link text-sm " href="#">ကိတ်မုန့်မျိုးစုံ</a>
         </li>
         <li class="nav-item text-light">
-          <a class="nav-link md:text-xl " href="#">အချိုပွဲ</a>
+          <a class="nav-link text-sm " href="#">အချိုပွဲ</a>
         </li>
         <li class="nav-item text-light">
-          <a class="nav-link md:text-xl " href="#">ကလေးအစားအစာများ</a>
+          <a class="nav-link text-sm " href="#">ကလေးအစားအစာများ</a>
         </li>
         <li class="nav-item text-light">
-          <a class="nav-link md:text-xl " href="#">သောက်ဖွယ်ရာများ</a>
+          <a class="nav-link text-sm " href="#">သောက်ဖွယ်ရာများ</a>
         </li>
         <!-- <li class="nav-itemtext-light ">
           <a class="nav-link disabled" href="#">သောက်ဖွယ်</a>
@@ -119,8 +55,8 @@
         <!-- Myanmar cuisine collection-->
         <section class="my-16 mx-2 flex flex-col">
             <div >
-                <h2 class="text-center  leading-relaxed text-gray-300 text-2xl md:text-2xl lg:text-3xl font-bold  mb-5 relative">Myanmar Cuisine Collection <br> (မြန်မာအစားစာ ချက်နည်းပြုတ်နည်းများ)</h2>
-                <p class=" text-center px-6 text-xl md:text-2xl md:w-[1000px] md:mx-auto lg:w-[1500px] lg:mx-auto  lg:text-2xl text-gray-300 lg:leading-loose">မြန်မာပြည်က အစားအစာများကို နိုင်ငံခြားရောက်မြန်မာ
+                <h2 class="text-center  leading-relaxed text-gray-300 text-2xl md:text-xl lg:text-2xl font-bold  mb-5 relative">Myanmar Cuisine Collection (မြန်မာအစားစာ ချက်နည်းပြုတ်နည်းများ)</h2>
+                <p class=" text-center px-6 text-md md:text-md md:w-[1000px] md:mx-auto lg:w-[1000px] lg:mx-auto   text-gray-300 lg:leading-loose">မြန်မာပြည်က အစားအစာများကို နိုင်ငံခြားရောက်မြန်မာ
                     များအနေဖြင့် လွမ်းစွတ်တမ်းတ နေမြဲဖြစ်ပါတယ်။ ဒီနေရာလေးမှာတော့ နိုင်ငံခြားမှာ
                     ရရှိနိုင်တဲ့ အရာများဖြင့် မြန်မာပြည်အစားအစာ များကို ချက်ပြုတ်လုပ်စားခြင်းကို ဦးစား
                     ပေး ဖေါ်ပြပေးသွားမှာ ဖြစ်ပါတယ်။</p>
@@ -134,10 +70,10 @@
                
     
                 <!-- grid -->
-                <div class="container my-48 grid__wrapper grid grid-cols-[repeat(auto-fit,_minmax(300px,_1fr))] gap-16">
+                <div class="container my-28 grid__wrapper grid grid-cols-[repeat(auto-fit,_minmax(300px,_1fr))] gap-16">
                     <!-- Fish noodle soup -->
                     <figure class="recipe-group mx-auto">
-                        <img class="rounded-t-2xl object-cover w-[30rem] h-[22rem]" src="/public/images/mohinga-gde3f2ed3a_640.jpg"
+                        <img class="rounded-t-2xl object-cover w-[25rem] h-[22rem]" src="../images/mohinga-gde3f2ed3a_640.jpg"
                             alt="mohingar" srcset="">
                             <button type="button" class="collapsible text-center text-white cursor-pointer p-[18px] w-full text-left  outline-0 bg-[#27b4ae]  active:bg-[#27b4ae] hover:bg[#27b4ae] ">မုန့်ဟင်းခါး (Fish Noodle Soup) + </button>
                                    <div class="content py-0 px-[18px] hidden bg-[#353434] ">
@@ -178,14 +114,14 @@
 </figure>
 
                     <figure class="recipe-group mx-auto">
-                      <a href=""><img class="rounded-t-2xl object-cover w-[30rem] h-[22rem]" src="/public/images/IMG_1468.JPG"
+                      <a href=""><img class="rounded-t-2xl object-cover w-[25rem] h-[22rem]" src="../images/IMG_1468.JPG"
                           alt="" srcset=""></a>
-                          <button type="button" class="collapsible text-center text-white cursor-pointer p-[18px] w-full text-left  outline-0 bg-[#27b4ae]  active:bg-[#27b4ae] hover:bg[#27b4ae] ">မုန့်ဟင်းခါး (Fish Noodle Soup) + </button>
+                          <button type="button" class="collapsible text-center text-white cursor-pointer p-[18px] w-full text-left  outline-0 bg-[#27b4ae]  active:bg-[#27b4ae] hover:bg[#27b4ae] ">လက်ဖက်သုပ် (Pickle Tea Salad) + </button>
                                  <div class="content py-0 px-[18px] hidden bg-[#353434] ">
                                  <p class="py-4 text-gray-300 ">
                                      <span>Serve : 6 </span><br>
                                      <span>Preparation time : 1 hour </span><br>
-                                     <span>Cooking time :1 hour </span><br>
+                                     <span>Cooking time :30 mins </span><br>
                                      <!-- Modal -->
             <!-- Button trigger modal -->
 <button type="button" id="modal" class="btn btn-info " data-toggle="modal" data-target="#exampleModal">
@@ -219,14 +155,14 @@
                   </figure>
 
                   <figure class="recipe-group mx-auto">
-                    <a href=""><img class="rounded-t-2xl object-cover w-[30rem] h-[22rem]" src="/public/images/cocunutnoodle.jpg"
-                        alt="" srcset=""></a>
-                        <button type="button" class="collapsible text-center text-white cursor-pointer p-[18px] w-full text-left  outline-0 bg-[#27b4ae]  active:bg-[#27b4ae] hover:bg[#27b4ae] ">မုန့်ဟင်းခါး (Fish Noodle Soup) + </button>
+                    <a href=""><img class="rounded-t-2xl object-cover w-[25rem] h-[22rem]" src="../images/cocunutnoodle.jpg"
+                        alt="Coconut noodle" srcset=""></a>
+                        <button type="button" class="collapsible text-center text-white cursor-pointer p-[18px] w-full text-left  outline-0 bg-[#27b4ae]  active:bg-[#27b4ae] hover:bg[#27b4ae] ">အုန်းနို့ခေါက်ဆွဲ (Chicken Coconut Noodle) + </button>
                                <div class="content py-0 px-[18px] hidden bg-[#353434] ">
                                <p class="py-4 text-gray-300 ">
                                    <span>Serve : 6 </span><br>
-                                   <span>Preparation time : 1 hour </span><br>
-                                   <span>Cooking time :1 hour </span><br>
+                                   <span>Preparation time : 45 mins </span><br>
+                                   <span>Cooking time :30 mins </span><br>
                                    <!-- Modal -->
             <!-- Button trigger modal -->
 <button type="button" id="modal" class="btn btn-info " data-toggle="modal" data-target="#exampleModal">
@@ -259,13 +195,13 @@
                 </figure>
 
                 <figure class="recipe-group mx-auto">
-                  <a href=""><img class="rounded-t-2xl object-cover w-[30rem] h-[22rem]" src="/public/images/beef curry.jpg"
-                      alt="" srcset=""></a>
-                      <button type="button" class="collapsible text-center text-white cursor-pointer p-[18px] w-full text-left  outline-0 bg-[#27b4ae]  active:bg-[#27b4ae] hover:bg[#27b4ae] ">မုန့်ဟင်းခါး (Fish Noodle Soup) + </button>
+                  <a href=""><img class="rounded-t-2xl object-cover w-[25rem] h-[22rem]" src="../images/beef curry.jpg"
+                      alt="beef stew" srcset=""></a>
+                      <button type="button" class="collapsible text-center text-white cursor-pointer p-[18px] w-full text-left  outline-0 bg-[#27b4ae]  active:bg-[#27b4ae] hover:bg[#27b4ae] ">အမဲနှပ် (Burmese Beef Stew) + </button>
                              <div class="content py-0 px-[18px] hidden bg-[#353434] ">
                              <p class="py-4 text-gray-300 ">
                                  <span>Serve : 6 </span><br>
-                                 <span>Preparation time : 1 hour </span><br>
+                                 <span>Preparation time : 30 mins, (marinate overnight) </span><br>
                                  <span>Cooking time :1 hour </span><br>
                                  <!-- Modal -->
             <!-- Button trigger modal -->
@@ -298,14 +234,14 @@
                   
               </figure>
 
-              <figure class="team-js mx-auto">
-                <a href=""><img class="rounded-t-2xl object-cover w-[30rem] h-[22rem]" src="/public/images/reyvenshots-a0deAnzlgY4-unsplash.jpg"
-                    alt="nick holding camera" srcset=""></a>
-                    <button type="button" class="collapsible text-center text-white cursor-pointer p-[18px] w-full text-left  outline-0 bg-[#27b4ae]  active:bg-[#27b4ae] hover:bg[#27b4ae] ">မုန့်ဟင်းခါး (Fish Noodle Soup) + </button>
+              <figure class="recipe_group mx-auto">
+                <a href=""><img class="rounded-t-2xl object-cover w-[25rem] h-[22rem]" src="../images/reyvenshots-a0deAnzlgY4-unsplash.jpg"
+                    alt="pork potato" srcset=""></a>
+                    <button type="button" class="collapsible text-center text-white cursor-pointer p-[18px] w-full text-left  outline-0 bg-[#27b4ae]  active:bg-[#27b4ae] hover:bg[#27b4ae] ">ဝက်သားအာလူးချက်ကြော် (Pork and Potato)) + </button>
                            <div class="content py-0 px-[18px] hidden bg-[#353434] ">
                            <p class="py-4 text-gray-300 ">
                                <span>Serve : 6 </span><br>
-                               <span>Preparation time : 1 hour </span><br>
+                               <span>Preparation time :20 mins </span><br>
                                <span>Cooking time :1 hour </span><br>
                                <!-- Modal -->
             <!-- Button trigger modal -->
@@ -338,15 +274,15 @@
                 
             </figure>
 
-            <figure class="team-js mx-auto">
-              <a href=""><img class="rounded-t-2xl object-cover w-[30rem] h-[22rem]" src="/public/images/jie-wang-XciY4hwqnNk-unsplash.jpg"
-                  alt="" srcset=""></a>
-                  <button type="button" class="collapsible text-center text-white cursor-pointer p-[18px] w-full text-left  outline-0 bg-[#27b4ae]  active:bg-[#27b4ae] hover:bg[#27b4ae] ">မုန့်ဟင်းခါး (Fish Noodle Soup) + </button>
+            <figure class="recipe_group mx-auto">
+              <a href=""><img class="rounded-t-2xl object-cover w-[25rem] h-[22rem]" src="../images/jie-wang-XciY4hwqnNk-unsplash.jpg"
+                  alt="egg fried rice" srcset=""></a>
+                  <button type="button" class="collapsible text-center text-white cursor-pointer p-[18px] w-full text-left  outline-0 bg-[#27b4ae]  active:bg-[#27b4ae] hover:bg[#27b4ae] ">ကြက်ဥ ထမင်းကြော် (Egg fried rice) + </button>
                          <div class="content py-0 px-[18px] hidden bg-[#353434] ">
                          <p class="py-4 text-gray-300 ">
                              <span>Serve : 6 </span><br>
-                             <span>Preparation time : 1 hour </span><br>
-                             <span>Cooking time :1 hour </span><br>
+                             <span>Preparation time : 20 mins </span><br>
+                             <span>Cooking time : 10 mins </span><br>
                              <!-- Modal -->
             <!-- Button trigger modal -->
 <button type="button" id="modal" class="btn btn-info " data-toggle="modal" data-target="#exampleModal">
@@ -378,15 +314,15 @@
               
           </figure>
 
-          <figure class="team-js mx-auto">
-            <a href=""><img class="rounded-t-2xl object-cover w-[30rem] h-[22rem]" src="/public/images/steam whole yellow peas.jpg"
-                alt="" srcset=""></a>
-                <button type="button" class="collapsible text-center text-white cursor-pointer p-[18px] w-full text-left  outline-0 bg-[#27b4ae]  active:bg-[#27b4ae] hover:bg[#27b4ae] ">မုန့်ဟင်းခါး (Fish Noodle Soup) + </button>
+          <figure class="recipe_group mx-auto">
+            <a href=""><img class="rounded-t-2xl object-cover w-[25rem] h-[22rem]" src="../images/steam whole yellow peas.jpg"
+                alt="steamed peas" srcset=""></a>
+                <button type="button" class="collapsible text-center text-white cursor-pointer p-[18px] w-full text-left  outline-0 bg-[#27b4ae]  active:bg-[#27b4ae] hover:bg[#27b4ae] ">ပဲပြုတ် (Steamed Whole Yellow Peas) + </button>
                        <div class="content py-0 px-[18px] hidden bg-[#353434] ">
                        <p class="py-4 text-gray-300 ">
                            <span>Serve : 6 </span><br>
-                           <span>Preparation time : 1 hour </span><br>
-                           <span>Cooking time :1 hour </span><br>
+                           <span>Preparation time : 3days </span><br>
+                           <span>Cooking time :30 mins </span><br>
                            <!-- Modal -->
           <!-- Button trigger modal -->
 <button type="button" id="modal" class="btn btn-info " data-toggle="modal" data-target="#exampleModal">
@@ -418,14 +354,14 @@ Click here for full recipe
             
         </figure>
 
-        <figure class="team-js mx-auto">
-          <a href=""><img class="rounded-t-2xl object-cover w-[30rem] h-[22rem]" src="/public/images/noodles-gcadbd3e42_640.jpg"
-              alt="" srcset=""></a>
-              <button type="button" class="collapsible text-center text-white cursor-pointer p-[18px] w-full text-left  outline-0 bg-[#27b4ae]  active:bg-[#27b4ae] hover:bg[#27b4ae] ">မုန့်ဟင်းခါး (Fish Noodle Soup) + </button>
+        <figure class="recipe_group mx-auto">
+          <a href=""><img class="rounded-t-2xl object-cover w-[25rem] h-[22rem]" src="../images/noodles-gcadbd3e42_640.jpg"
+              alt="kyayoo" srcset=""></a>
+              <button type="button" class="collapsible text-center text-white cursor-pointer p-[18px] w-full text-left  outline-0 bg-[#27b4ae]  active:bg-[#27b4ae] hover:bg[#27b4ae] ">ကြေးအိုး ဆီချက် (Kyi OO) + </button>
                      <div class="content py-0 px-[18px] hidden bg-[#353434] ">
                      <p class="py-4 text-gray-300 ">
                          <span>Serve : 6 </span><br>
-                         <span>Preparation time : 1 hour </span><br>
+                         <span>Preparation time : 45 mins </span><br>
                          <span>Cooking time :1 hour </span><br>
                          <!-- Modal -->
         <!-- Button trigger modal -->
