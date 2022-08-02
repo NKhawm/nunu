@@ -1,16 +1,17 @@
-<!DOCTYPE html>
-<html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <script src="https://cdn.tailwindcss.com"></script>
-        <script src="https://code.iconify.design/2/2.2.1/iconify.min.js"></script>
-        <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
-      <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
-      </head>
-      
-<body>
-    
+
+  <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/public/styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Hubballi&family=Joan&family=Montserrat:wght@200&family=Noto+Sans&display=swap" rel="stylesheet"> 
+    <title>NuNu' Kitchen and Lifestyle</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://code.iconify.design/2/2.2.1/iconify.min.js"></script> 
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+
 
 <footer class="w-full bg-[#27b4ae] h-auto ">
     <div class="footer__wrapper flex flex-col mt-4 z-10 relative ">
@@ -38,11 +39,16 @@
         <p class="mx-auto text-sm">Own and Created by Niang Khawm Huai.</p>
    
 </footer>
-
-
+<script src="assets/js/jquery.min.js"></script>
+<script src="assets/js/bootstrapbundle.min.js"></script>
+<script src="assets/js/scripts.js"></script>
 
 
 </body>
-
 </html>
+
+
+
+
+
 

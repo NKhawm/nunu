@@ -23,7 +23,7 @@
 
   <body class="font-serif bg-local bg-black " > 
 <?php
-include("header.php");
+include("public/view/header.php");
 ?>
 
       <!-- sub nav -->

@@ -10,10 +10,13 @@ $con = mysqli_connect($dbhost, $dbuser, $dbpassword, $dbname);
 
 
 
-if (!$con = mysqli_connect($dbhost, $dbuser, $dbpassword, $dbname)) {
-    die("Failed to connect!");
+if (!$con) {
+    header("Location:../errors/dberror.php");
+    die();
 }
 
-else {
-    echo "<script>alert('connection sucessful')</script>";
-}
+// else {
+//     echo "<script>alert('connection sucessful')</script>";
+// }
+
+?>

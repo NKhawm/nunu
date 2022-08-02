@@ -2,25 +2,23 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/public/styles.css">
+    <link rel="stylesheet" href="public/styles.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Hubballi&family=Joan&family=Montserrat:wght@200&family=Noto+Sans&display=swap" rel="stylesheet"> 
-<title>NuNu' Kitchen and Lifestyle</title>
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Hubballi&family=Joan&family=Montserrat:wght@200&family=Noto+Sans&display=swap" rel="stylesheet"> 
+    <title>NuNu' Kitchen and Lifestyle</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://code.iconify.design/2/2.2.1/iconify.min.js"></script> 
-        <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
-      
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
-    <!-- <script src="https://kit.fontawesome.com/9346465f4f.js" crossorigin="anonymous"></script> -->
 </head>
 
-  <!-- <body class="font-serif bg-local bg-[#E2E1DC] " >  -->
+  <body class="font-serif bg-local bg-[#E2E1DC] " >  
   <nav class=" p-1 lg:p-2  bg-[#353434] shadow lg:flex lg:items-center lg:justify-between w-full ">
         <div class="flex justify-between items-center ">
           <span class="text-2xl font-[Poppins] cursor-pointer text-white">
             <a href="home.php"><img class="h-10 lg:h-12 xl:h-14 "
-              src="../images/logo.png"></a>
+              src="public/images/logo.png"></a>
            
           </span>
     
@@ -30,7 +28,7 @@
           </span>
         </div>
     
-        <ul class=" text-white bg-black -mt-4 lg:bg-[#353434] lg:flex lg:items-center   lg:z-auto lg:static absolute text-white w-full left-0 lg:w-auto lg:py-0 py-4 lg:pl-0 pl-7 lg:opacity-100 opacity-0 top-[-400px] transition-all ease-in duration-500  ">
+        <ul class=" text-white bg-black -mt-8 lg:bg-[#353434] lg:flex lg:items-center   lg:z-auto lg:static absolute text-white w-full left-0 lg:w-auto lg:py-0 py-4 lg:pl-0 pl-7 lg:opacity-100 opacity-0 top-[-400px] transition-all ease-in duration-500  ">
           <li class="mx-2 my-1 lg:my-0">
             <a href="home.php" class="md:text-md hover:text-[#ffd230] duration-500">
               <ion-icon class="text-lg text-[#27b4ae] mr-1" name="home">
@@ -62,13 +60,16 @@
               </ion-icon>Contact (ဆက်သွယ်ရန်)</a>
           </li>
     
-          <button class=" bg-[#27b4ae] md:text-md text-gray-700 font-[Poppins] pointer-cursor duration-500 px-4 py-2 mx-2 hover:bg-[#ffafd7] hover:text-black rounded-full "> <a href="../control/signup.php"></a>
-            Register
-          </button>
-          <button class="bg-[#27b4ae] md:text-md text-gray-700 font-[Poppins] pointer-cursor duration-500 px-4 py-2 mx-2 hover:bg-[#ffafd7] hover:text-black rounded-full "> <a href="../control/login.php"></a>
-            Log in
-          </button>
-   
+          <li class=" bg-[#27b4ae] w-[100px] md:text-md text-gray-700 font-[Poppins] pointer-cursor duration-500 px-4 py-2 mx-2 hover:bg-[#ffafd7] hover:text-black rounded-full "><a href="signup.php"> 
+        Register</a>
+</li>
+      <li class="bg-[#27b4ae] w-[100px] md:text-md text-gray-700 font-[Poppins] pointer-cursor duration-500 px-4 py-2 mx-2 hover:bg-[#ffafd7] hover:text-black rounded-full "><a href="login.php">
+        Log in </a>
+</li>
+<!-- <button class="flex flex-col justify-center border" >
+<span class="iconify text-3xl text-[#27b4ae] mx-auto" data-icon="line-md:account"></span>
+<span>My Account</span> 
+</button> -->
         </ul>
       </nav>
     
@@ -83,5 +84,4 @@
           list.classList.remove('opacity-100'))
         }
       </script>
-    </body>
-    </html>
+  
