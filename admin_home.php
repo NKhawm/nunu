@@ -1,24 +1,32 @@
 <?php
-// add includes and database here
+session_start();
+include('public/model/connection.php');
+global $con;
+//database connection
+
 ?>
 
 <?php
 //checks if the user is admin
-if (isset($_SESSION['role_as']) && $_SESSION['role_as'] == 'admin') {
-?>
+if (isset($_SESSION['user_type']) && $_SESSION['user_id'] !=='admin') {
 
 
 
 
-    <!-- page heading -->
-    <h2>Welcome Back to Admin, <small><?php echo $_SESSION['user_name']; ?> </small></h2>
+
+  
+    echo  "<p class='text-danger'>Sorry, you do not have access to this area. <a href='member/user_home.php'>Click here to go home.</a></p>";
+    
 
 
 
 
-<?php
     //if user is not admin then this error message will show
 } else {
-    echo  "<p class='text-danger'>Sorry, you do not have access to this area. <a href='articles.php?source=index'>Click here to go home.</a></p>";
+    ?>
+    <h2>Welcome Back to Admin, <small><?php echo $_SESSION['user_name']; ?> </small></h2>
+    <?php
+
+    
 }
 ?>

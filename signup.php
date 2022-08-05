@@ -1,77 +1,9 @@
 <?php
 session_start();
-//$_SESSION;
-
- include("public/model/connection.php");
- include("function.php");
- $nameErr = $emailErr = $phoneErr = $ageErr = $passwordErr = $confirmErr = "";
-
-if ($_SERVER['REQUEST_METHOD'] == "POST")
-
-
-{ 
-    //print_r($_POST);
-   $username = $_POST['user_name']; 
-   if(empty($username))
-   {
-    $nameErr = "A valid user name is required.";  
-   }
-
-   $email = $_POST['email'];
-   if(!preg_match("/^[\w\-]+@[\w\]+.[\w\]+$/" ,$email) && empty($email))
-   {
-       $emailErr = "A valid email is required.";
-   }
-   $age= $_POST['age'];
-   if($age < 13 && empty($age))
-   {
-       $ageErr = "You have to be at least 13 years old to register.";
-   }
-   $password = $_POST['user_password'];
-   if($password < 8 && empty($password))
-   {
-       $passwordErr = "Password must contain at least 8 charater.";
-   }
-   if(!preg_match("/[A-Z]/i", $password))
-   {
-    $passwordErr = "Password must contain at least one capital letter.";
-   }
-   if(!preg_match("/[0-9]/",$password))
-   {
-    $passwordErr = "Password must contain at least one number.";
-   }
-  
-  
-   $confirmpwd = $_POST['confirm_password'];
-   if ($password !== $confirmpwd)
-   {
-     $confirmErr = "Password must match.";
-   }
-   
-  if(!$nameErr && !$emailErr && !$phoneErr && !$ageErr && !$passwordErr && !$confirmErr)  {
-   
-  $user_id = random_num(8);
-   $query = "INSERT INTO users (user_id,user_name,email_address,phone_no,age,password) 
-   VALUES ('$user_id','$username','$email','$phone_no','$age','$password')";
-   //echo $query;
-   mysqli_query($con,$query);
-
-
-
-  
-        //echo "<script>alert('Register Completed. Sign in now.')</script>";
-        header("Location:login.php");
-    die;
-}
-
-}
-
- 
-
- 
-
+include("public/model/connection.php");
+global $con;
+include("function.php");
 ?>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -98,6 +30,75 @@ if ($_SERVER['REQUEST_METHOD'] == "POST")
 <body class="font-serif bg-[url('public/images/bg1.jpg')]">
   <!-- style -->
 <style>.error {color:red;} </style>
+<?php
+
+ $nameErr = $emailErr = $ageErr = $passwordErr = $confirmErr = "";
+
+if (isset($_POST['submit']))
+{
+    
+    //username
+    $username = $_POST['user_name']; 
+    if(empty($username))
+    {
+      $nameErr = "A valid user name is required.";  
+    
+    }
+
+
+     // email
+     $email = $_POST['email'];
+     if(!preg_match("/^[_a-z0-9-]+(\.[_a-z0-9-]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,})$/i" ,$email) && empty($email))
+     {
+         $emailErr = "A valid email is required.";
+     }
+
+
+    //age
+    $age= $_POST['age'];
+    if($age < 13 && empty($age))
+    {
+        $ageErr = "You have to be at least 13 years old to register.";
+    }
+
+    //password
+    $password = $_POST['user_password'];
+    if($password < 8 && empty($password))
+    {
+        $passwordErr = "Password must contain at least 8 charater.";
+    }
+    if(!preg_match("/[A-Z]/i", $password))
+    {
+     $passwordErr = "Password must contain at least one capital letter.";
+    }
+    if(!preg_match("/[0-9]/",$password))
+    {
+     $passwordErr = "Password must contain at least one number.";
+   }
+     //confirm password
+    $confirmpwd = $_POST['confirm_password'];
+    if ($password !== $confirmpwd)
+{
+      $confirmErr = "Password must match.";
+    }
+   
+    //save to databa
+    if(!$nameErr && !$emailErr && !$ageErr && !$passwordErr && !$confirmErr)  {
+   
+        $user_id = random_num(8);
+         $query = "INSERT INTO users (user_id,user_name,email_address,age,password) 
+         VALUES ('$user_id','$username','$email','$age','$password')";
+         //echo $query;
+         mysqli_query($con,$query);
+         header('location: login.php');
+      
+           }
+          	
+
+
+           
+        }       
+?>
 <!-- Nav bar -->
 <nav class=" p-1 lg:p-2  bg-[#353434] shadow lg:flex lg:items-center lg:justify-between w-full ">
         <div class="flex justify-between items-center ">
@@ -176,46 +177,46 @@ if ($_SERVER['REQUEST_METHOD'] == "POST")
     <div class="form-group">
       <label for="username">User Name</label>
       <input type="text" class="form-control" id="inputusername" placeholder="Username" name="user_name">
-      <span class="error"><?php echo $nameErr; ?></span>
+      <span class="error"><?php if(isset($nameErr)){ echo $nameErr;}?></span>
     </div>
 
     <div class="form-group">
       <label for="email">Email</label>
       <input type="text" class="form-control" id="inputEmail4" placeholder="Email" name="email">
-      <span class="error"><?php echo $emailErr; ?></span>
+      <span class="error"><?php if(isset($emailErr)){ echo $emailErr;}?></span>
     </div>
   
   <div class="form-group">
     <label for="inputAge">Age</label>
     <input type="number" class="form-control" id="inputAge" placeholder="Age" name="age">
-    <span class="error"><?php echo $ageErr; ?></span>
+    <span class="error"><?php if(isset($ageErr)){ echo $ageErr;}?></span>
   </div>
 
  
     <div class="form-group">
     <label for="inputPassword">Password</label>
     <input type="password" class="form-control" id="inputPwd" placeholder="Password" name="user_password">
-    <span class="error"><?php echo $passwordErr; ?></span>
+    <span class="error"><?php if(isset($passwordErr)){ echo $passwordErr;}?></span>
   </div>
   <div class="form-group">
     <label for="inputConfirm">Confirm Password</label>
     <input type="password" class="form-control" id="inputConfirm" placeholder="Confirm Password" name="confirm_password">
-    <span class="error"><?php echo $confirmErr; ?></span>
+    <span class="error"><?php if(isset($confirmErr)){ echo $confirmErr;}?></span>
   </div>
 
-  <div class="form-group">
-  <select class="form-select form-select-lg mb-3 text-dark w-full h-9 rounded-sm mt-4" aria-label=".form-select-lg example">
+  <!-- <div class="form-group">
+  <select class="form-select form-select-lg mb-3 text-dark w-full h-9 rounded-sm mt-4" aria-label=".form-select-lg example"name="user_type">
   <option selected>User Type</option>
   <option value="1">user</option>
   <option value="2">admin</option>
 </select>
-</div>
+</div> -->
 
-  <div class="form-group">
+  <!-- <div class="form-group">
   <label for="file">Profile Pic</label><br>
             <input type="file" name="image"><br>
-            <span class="error"><?php echo $fileErr; ?></span>
-  </div> 
+            <span class="error"><?php //echo $fileErr; ?></span>
+  </div>  -->
 
   
   

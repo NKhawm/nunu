@@ -1,3 +1,10 @@
+<?php
+session_start();
+include('../../public/model/connection.php');
+global $con;
+?>
+
+
 <html lang="en">
 
 <head>
@@ -22,9 +29,78 @@
 </head>
 
   <body class="font-serif bg-local bg-black " > 
-<?php
-include("public/view/header.php");
-?>
+  
+  <nav class=" p-1 lg:p-2  bg-[#353434] shadow lg:flex lg:items-center lg:justify-between w-full ">
+        <div class="flex justify-between items-center ">
+          <span class="text-2xl font-[Poppins] cursor-pointer text-white">
+            <a href="../user_home.php"><img class="h-10 lg:h-12 xl:h-14 "
+              src="../../public/images/logo.png"></a>
+           
+          </span>
+    
+          <span class=" text-4xl xl:text-5xl cursor-pointer mx-2 lg:hidden lg:block">
+            <span class="iconify text-[#00adb6]" onclick="Menu(this)" data-icon="fa6-solid:burger"></span>
+            <!-- <ion-icon name="menu" onclick="Menu(this)"></ion-icon> -->
+          </span>
+        </div>
+    
+        <ul class=" text-white bg-black -mt-8 lg:bg-[#353434] lg:flex lg:items-center lg:inline-block lg:align-middle  lg:z-auto lg:static absolute text-white w-full left-0 lg:w-auto lg:py-0 py-4 lg:pl-0 pl-7 lg:opacity-100 opacity-0 top-[-400px] transition-all ease-in duration-500  ">
+          <li class="mx-2 my-1 lg:my-0">
+            <a href="home.php" class="md:text-md hover:text-[#ffd230] duration-500">
+              <ion-icon class="text-lg text-[#27b4ae] mr-1" name="home">
+              </ion-icon>Home (အိမ်)</a>
+            
+          </li>
+
+          <li class="mx-2 my-1 lg:my-0">
+            <a href="recipes.php" class="  md:text-md hover:text-[#ffd230] duration-500">
+              <ion-icon class="text-lg text-[#27b4ae] mr-1" name="receipt">
+              </ion-icon>Recipes (ချက်ပြုတ်နည်းများ)</a>
+          </li>
+
+          <li class="mx-2 my-1 lg:my-0">
+            <a href="#" class="md:text-md hover:text-[#ffd230] duration-500">
+              <ion-icon class="text-lg text-[#27b4ae] mr-1" name="videocam">
+              </ion-icon>Videos (ဗီဒီယိုများ)</a>
+          </li>
+
+          <li class="mx-2 my-1 lg:my-0">
+            <a href="#" class="md:text-md hover:text-[#ffd230] duration-500">
+              <ion-icon class="text-lg text-[#27b4ae] mr-1" name="reader">
+              </ion-icon>Blogs (ဘလော့ဂ်များ)</a>
+          </li>
+
+          <li class="mx-2 mt-1 mb-3 lg:my-0">
+            <a href="#" class="md:text-md hover:text-[#ffd230] duration-500">
+              <ion-icon class="text-lg text-[#27b4ae] mr-1" name="chatbubbles">
+              </ion-icon>Contact (ဆက်သွယ်ရန်)</a>
+          </li>
+    
+          <li class=" bg-[#27b4ae] w-[100px] md:text-md text-gray-700 font-[Poppins] pointer-cursor duration-500 px-4 py-2 mx-2 hover:bg-[#ffafd7] hover:text-black rounded-full "> Account
+        
+</li>
+      <li class="bg-[#27b4ae] w-[100px] md:text-md text-gray-700 font-[Poppins] pointer-cursor duration-500 px-4 py-2 mx-2 hover:bg-[#ffafd7] hover:text-black rounded-full "><a href="../../logout.php">
+        Log out </a>
+</li>
+<!-- <button class="flex flex-col justify-center border" >
+<span class="iconify text-3xl text-[#27b4ae] mx-auto" data-icon="line-md:account"></span>
+<span>My Account</span> 
+</button> -->
+        </ul>
+      </nav>
+    
+    
+      <script>
+        function Menu(e){
+          let list = document.querySelector('ul');
+          e.name === 'menu' ? (e.name = "close",
+          list.classList.add('top-[80px]') , 
+          list.classList.add('opacity-100')) :( e.name = "menu" ,
+          list.classList.remove('top-[80px]'),
+          list.classList.remove('opacity-100'))
+        }
+      </script>
+  
 
       <!-- sub nav -->
       
@@ -73,7 +149,7 @@ include("public/view/header.php");
                 <div class="container my-28 grid__wrapper grid grid-cols-[repeat(auto-fit,_minmax(300px,_1fr))] gap-16">
                     <!-- Fish noodle soup -->
                     <figure class="recipe-group mx-auto">
-                        <img class="rounded-t-2xl object-cover w-[25rem] h-[22rem]" src="public/images/mohinga-gde3f2ed3a_640.jpg"
+                        <img class="rounded-t-2xl object-cover w-[25rem] h-[22rem]" src="../../public/images/mohinga-gde3f2ed3a_640.jpg"
                             alt="mohingar" srcset="">
                             <button type="button" class="collapsible text-center text-white cursor-pointer p-[18px] w-full text-left  outline-0 bg-[#27b4ae]  active:bg-[#27b4ae] hover:bg[#27b4ae] ">မုန့်ဟင်းခါး (Fish Noodle Soup) + </button>
                                    <div class="content py-0 px-[18px] hidden bg-[#353434] ">
@@ -83,38 +159,13 @@ include("public/view/header.php");
                                        <span>Cooking time :1 hour </span><br>
                                        <!-- Modal -->
             <!-- Button trigger modal -->
-<button type="button" id="modal" class="btn btn-info " data-toggle="modal" data-target="#exampleModal">
+<a href="mohinga.php"><button type="button" id="modal" class="btn btn-info " data-toggle="modal" data-target="#exampleModal">
   Click here for full recipe
-</button>
-
-<!-- Modal -->
-<div class="modal fade  " id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content bg-[#ffafd7]">
-      <div class="modal-header" id="modal">
-        <h5 class="modal-title text-center" id="exampleModalLabel">Resgisteration Needed.</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body text-center">
-        You have to be a member to view this content. Register or Signin below.
-      </div>
-      <div class="modal-footer">
-        <a href="#"><button type="button" class="btn btn-warning text-black bg-warning border" data-dismiss="modal">Register</button></a>
-        <a href="#"><button type="button" class="btn btn-warning text-black bg-warning border">Signin</button></a>
-      </div>
-    </div>
-  </div>
-</div>
-
-</p>
-</div>
-                        
+</button> </a>                       
 </figure>
 
                     <figure class="recipe-group mx-auto">
-                      <a href=""><img class="rounded-t-2xl object-cover w-[25rem] h-[22rem]" src="public/images/IMG_1468.JPG"
+                      <a href=""><img class="rounded-t-2xl object-cover w-[25rem] h-[22rem]" src="../../public/images/IMG_1468.JPG"
                           alt="" srcset=""></a>
                           <button type="button" class="collapsible text-center text-white cursor-pointer p-[18px] w-full text-left  outline-0 bg-[#27b4ae]  active:bg-[#27b4ae] hover:bg[#27b4ae] ">လက်ဖက်သုပ် (Pickle Tea Salad) + </button>
                                  <div class="content py-0 px-[18px] hidden bg-[#353434] ">
@@ -122,40 +173,11 @@ include("public/view/header.php");
                                      <span>Serve : 6 </span><br>
                                      <span>Preparation time : 1 hour </span><br>
                                      <span>Cooking time :30 mins </span><br>
-                                     <!-- Modal -->
-            <!-- Button trigger modal -->
-<button type="button" id="modal" class="btn btn-info " data-toggle="modal" data-target="#exampleModal">
-  Click here for full recipe
-</button>
-
-<!-- Modal -->
-<div class="modal fade  " id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content bg-[#ffafd7]">
-      <div class="modal-header" id="modal">
-        <h5 class="modal-title text-center" id="exampleModalLabel">Resgisteration Needed.</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body text-center">
-        You have to be a member to view this content. Register or Signin below.
-      </div>
-      <div class="modal-footer">
-        <a href="#"><button type="button" class="btn btn-warning text-black bg-warning border" data-dismiss="modal">Register</button></a>
-        <a href="#"><button type="button" class="btn btn-warning text-black bg-warning border">Signin</button></a>
-      </div>
-    </div>
-  </div>
-</div>
-
-                                  </p>
-                                 </div>
-                      
+                              
                   </figure>
 
                   <figure class="recipe-group mx-auto">
-                    <a href=""><img class="rounded-t-2xl object-cover w-[25rem] h-[22rem]" src="public/images/cocunutnoodle.jpg"
+                    <a href=""><img class="rounded-t-2xl object-cover w-[25rem] h-[22rem]" src="../../public/images/cocunutnoodle.jpg"
                         alt="Coconut noodle" srcset=""></a>
                         <button type="button" class="collapsible text-center text-white cursor-pointer p-[18px] w-full text-left  outline-0 bg-[#27b4ae]  active:bg-[#27b4ae] hover:bg[#27b4ae] ">အုန်းနို့ခေါက်ဆွဲ (Chicken Coconut Noodle) + </button>
                                <div class="content py-0 px-[18px] hidden bg-[#353434] ">
@@ -163,39 +185,10 @@ include("public/view/header.php");
                                    <span>Serve : 6 </span><br>
                                    <span>Preparation time : 45 mins </span><br>
                                    <span>Cooking time :30 mins </span><br>
-                                   <!-- Modal -->
-            <!-- Button trigger modal -->
-<button type="button" id="modal" class="btn btn-info " data-toggle="modal" data-target="#exampleModal">
-  Click here for full recipe
-</button>
-
-<!-- Modal -->
-<div class="modal fade  " id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content bg-[#ffafd7]">
-      <div class="modal-header" id="modal">
-        <h5 class="modal-title text-center" id="exampleModalLabel">Resgisteration Needed.</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body text-center">
-        You have to be a member to view this content. Register or Signin below.
-      </div>
-      <div class="modal-footer">
-        <a href="#"><button type="button" class="btn btn-warning text-black bg-warning border" data-dismiss="modal">Register</button></a>
-        <a href="#"><button type="button" class="btn btn-warning text-black bg-warning border">Signin</button></a>
-      </div>
-    </div>
-  </div>
-</div>
-   </p>
-                               </div>
-                    
                 </figure>
 
                 <figure class="recipe-group mx-auto">
-                  <a href=""><img class="rounded-t-2xl object-cover w-[25rem] h-[22rem]" src="public/images/beef curry.jpg"
+                  <a href=""><img class="rounded-t-2xl object-cover w-[25rem] h-[22rem]" src="../../public/images/beef curry.jpg"
                       alt="beef stew" srcset=""></a>
                       <button type="button" class="collapsible text-center text-white cursor-pointer p-[18px] w-full text-left  outline-0 bg-[#27b4ae]  active:bg-[#27b4ae] hover:bg[#27b4ae] ">အမဲနှပ် (Burmese Beef Stew) + </button>
                              <div class="content py-0 px-[18px] hidden bg-[#353434] ">
@@ -203,39 +196,11 @@ include("public/view/header.php");
                                  <span>Serve : 6 </span><br>
                                  <span>Preparation time : 30 mins, (marinate overnight) </span><br>
                                  <span>Cooking time :1 hour </span><br>
-                                 <!-- Modal -->
-            <!-- Button trigger modal -->
-<button type="button" id="modal" class="btn btn-info " data-toggle="modal" data-target="#exampleModal">
-  Click here for full recipe
-</button>
-
-<!-- Modal -->
-<div class="modal fade  " id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content bg-[#ffafd7]">
-      <div class="modal-header" id="modal">
-        <h5 class="modal-title text-center" id="exampleModalLabel">Resgisteration Needed.</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body text-center">
-        You have to be a member to view this content. Register or Signin below.
-      </div>
-      <div class="modal-footer">
-        <a href="#"><button type="button" class="btn btn-warning text-black bg-warning border" data-dismiss="modal">Register</button></a>
-        <a href="#"><button type="button" class="btn btn-warning text-black bg-warning border">Signin</button></a>
-      </div>
-    </div>
-  </div>
-</div>
- </p>
-                             </div>
-                  
+                                 
               </figure>
 
               <figure class="recipe_group mx-auto">
-                <a href=""><img class="rounded-t-2xl object-cover w-[25rem] h-[22rem]" src="public/images/reyvenshots-a0deAnzlgY4-unsplash.jpg"
+                <a href=""><img class="rounded-t-2xl object-cover w-[25rem] h-[22rem]" src="../../public/images/reyvenshots-a0deAnzlgY4-unsplash.jpg"
                     alt="pork potato" srcset=""></a>
                     <button type="button" class="collapsible text-center text-white cursor-pointer p-[18px] w-full text-left  outline-0 bg-[#27b4ae]  active:bg-[#27b4ae] hover:bg[#27b4ae] ">ဝက်သားအာလူးချက်ကြော် (Pork and Potato)) + </button>
                            <div class="content py-0 px-[18px] hidden bg-[#353434] ">
@@ -243,39 +208,11 @@ include("public/view/header.php");
                                <span>Serve : 6 </span><br>
                                <span>Preparation time :20 mins </span><br>
                                <span>Cooking time :1 hour </span><br>
-                               <!-- Modal -->
-            <!-- Button trigger modal -->
-<button type="button" id="modal" class="btn btn-info " data-toggle="modal" data-target="#exampleModal">
-  Click here for full recipe
-</button>
-
-<!-- Modal -->
-<div class="modal fade  " id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content bg-[#ffafd7]">
-      <div class="modal-header" id="modal">
-        <h5 class="modal-title text-center" id="exampleModalLabel">Resgisteration Needed.</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body text-center">
-        You have to be a member to view this content. Register or Signin below.
-      </div>
-      <div class="modal-footer">
-        <a href="#"><button type="button" class="btn btn-warning text-black bg-warning border" data-dismiss="modal">Register</button></a>
-        <a href="#"><button type="button" class="btn btn-warning text-black bg-warning border">Signin</button></a>
-      </div>
-    </div>
-  </div>
-</div>
- </p>
-                           </div>
-                
+                                               
             </figure>
 
             <figure class="recipe_group mx-auto">
-              <a href=""><img class="rounded-t-2xl object-cover w-[25rem] h-[22rem]" src="public/images/jie-wang-XciY4hwqnNk-unsplash.jpg"
+              <a href=""><img class="rounded-t-2xl object-cover w-[25rem] h-[22rem]" src="../../public/images/jie-wang-XciY4hwqnNk-unsplash.jpg"
                   alt="egg fried rice" srcset=""></a>
                   <button type="button" class="collapsible text-center text-white cursor-pointer p-[18px] w-full text-left  outline-0 bg-[#27b4ae]  active:bg-[#27b4ae] hover:bg[#27b4ae] ">ကြက်ဥ ထမင်းကြော် (Egg fried rice) + </button>
                          <div class="content py-0 px-[18px] hidden bg-[#353434] ">
@@ -283,39 +220,11 @@ include("public/view/header.php");
                              <span>Serve : 6 </span><br>
                              <span>Preparation time : 20 mins </span><br>
                              <span>Cooking time : 10 mins </span><br>
-                             <!-- Modal -->
-            <!-- Button trigger modal -->
-<button type="button" id="modal" class="btn btn-info " data-toggle="modal" data-target="#exampleModal">
-  Click here for full recipe
-</button>
-
-<!-- Modal -->
-<div class="modal fade  " id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content bg-[#ffafd7]">
-      <div class="modal-header" id="modal">
-        <h5 class="modal-title text-center" id="exampleModalLabel">Resgisteration Needed.</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body text-center">
-        You have to be a member to view this content. Register or Signin below.
-      </div>
-      <div class="modal-footer">
-        <a href="#"><button type="button" class="btn btn-warning text-black bg-warning border" data-dismiss="modal">Register</button></a>
-        <a href="#"><button type="button" class="btn btn-warning text-black bg-warning border">Signin</button></a>
-      </div>
-    </div>
-  </div>
-</div>
- </p>
-                         </div>
-              
+                             
           </figure>
 
           <figure class="recipe_group mx-auto">
-            <a href=""><img class="rounded-t-2xl object-cover w-[25rem] h-[22rem]" src="public/images/steam whole yellow peas.jpg"
+            <a href=""><img class="rounded-t-2xl object-cover w-[25rem] h-[22rem]" src="../../public/images/steam whole yellow peas.jpg"
                 alt="steamed peas" srcset=""></a>
                 <button type="button" class="collapsible text-center text-white cursor-pointer p-[18px] w-full text-left  outline-0 bg-[#27b4ae]  active:bg-[#27b4ae] hover:bg[#27b4ae] ">ပဲပြုတ် (Steamed Whole Yellow Peas) + </button>
                        <div class="content py-0 px-[18px] hidden bg-[#353434] ">
@@ -328,34 +237,11 @@ include("public/view/header.php");
 <button type="button" id="modal" class="btn btn-info " data-toggle="modal" data-target="#exampleModal">
 Click here for full recipe
 </button>
-
-<!-- Modal -->
-<div class="modal fade  " id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-<div class="modal-dialog" role="document">
-  <div class="modal-content bg-[#ffafd7]">
-    <div class="modal-header" id="modal">
-      <h5 class="modal-title text-center" id="exampleModalLabel">Resgisteration Needed.</h5>
-      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-        <span aria-hidden="true">&times;</span>
-      </button>
-    </div>
-    <div class="modal-body text-center">
-      You have to be a member to view this content. Register or Signin below.
-    </div>
-    <div class="modal-footer">
-      <a href="#"><button type="button" class="btn btn-warning text-black bg-warning border" data-dismiss="modal">Register</button></a>
-      <a href="#"><button type="button" class="btn btn-warning text-black bg-warning border">Signin</button></a>
-    </div>
-  </div>
-</div>
-</div>
-</p>
-                       </div>
             
         </figure>
 
         <figure class="recipe_group mx-auto">
-          <a href=""><img class="rounded-t-2xl object-cover w-[25rem] h-[22rem]" src="public/images/noodles-gcadbd3e42_640.jpg"
+          <a href=""><img class="rounded-t-2xl object-cover w-[25rem] h-[22rem]" src="../../public/images/noodles-gcadbd3e42_640.jpg"
               alt="kyayoo" srcset=""></a>
               <button type="button" class="collapsible text-center text-white cursor-pointer p-[18px] w-full text-left  outline-0 bg-[#27b4ae]  active:bg-[#27b4ae] hover:bg[#27b4ae] ">ကြေးအိုး ဆီချက် (Kyi OO) + </button>
                      <div class="content py-0 px-[18px] hidden bg-[#353434] ">
@@ -363,34 +249,7 @@ Click here for full recipe
                          <span>Serve : 6 </span><br>
                          <span>Preparation time : 45 mins </span><br>
                          <span>Cooking time :1 hour </span><br>
-                         <!-- Modal -->
-        <!-- Button trigger modal -->
-<button type="button" id="modal" class="btn btn-info " data-toggle="modal" data-target="#exampleModal">
-Click here for full recipe
-</button>
-
-<!-- Modal -->
-<div class="modal fade  " id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-<div class="modal-dialog" role="document">
-<div class="modal-content bg-[#ffafd7]">
-  <div class="modal-header" id="modal">
-    <h5 class="modal-title text-center" id="exampleModalLabel">Resgisteration Needed.</h5>
-    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-      <span aria-hidden="true">&times;</span>
-    </button>
-  </div>
-  <div class="modal-body text-center">
-    You have to be a member to view this content. Register or Signin below.
-  </div>
-  <div class="modal-footer">
-    <a href="#"><button type="button" class="btn btn-warning text-black bg-warning border" data-dismiss="modal">Register</button></a>
-    <a href="#"><button type="button" class="btn btn-warning text-black bg-warning border">Signin</button></a>
-  </div>
-</div>
-</div>
-</div>
-</p>
-                     </div>
+                         
           
       </figure>
 

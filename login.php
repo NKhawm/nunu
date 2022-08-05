@@ -1,45 +1,104 @@
 <?php
-// session_start();
+session_start();
+include('public/model/connection.php');
+global $con;
+include('function.php');
+$error="";
+// if(isset($_POST['submit']))
+// {
+//   $name=$_POST['user_name'];
+//   $password=$_POST['user_password'];
 
-//  include('public/model/connection.php');
+//   $query = "SELECT * FROM users WHERE user_name= '".$name."' AND password='".$password."' AND user_type ";
+//   $result=mysqli_query($con,$query);
+
+//   if($result)
+//   {
+//     while($row=mysqli_fetch_array($result))
+//     {
+//       echo "Hi ya";
+//     }
+//     if(mysqli_num_rows($result)>0)
+//     {
+//       echo "hey";
+//     }
+//   }
+
+// }
+
+//----------------------------mmmm--------------------
+if ($_SERVER['REQUEST_METHOD'] == "POST")
+{
+  $name=$_POST['user_name'];
+  $password=$_POST['user_password'];
+  if(!empty($name) && !empty($password))
+  {
+    //read form database
+    $query="SELECT * FROM users WHERE user_name='".$name."' AND password='".$password."' AND user_type='' limit 1";
+    $result=mysqli_query($con, $query);
+
+    if($result && mysqli_num_rows($result) > 0)
+    {
+      $user_data = mysqli_fetch_assoc($result);
+
+      if($user_data['password'] === $password  && $user_data['user_type'] === 'user' )
+      {
+        $_SESSION['user_id'] = $user_data['user_id'];
+        header('location:member/user_home.php');
+        die;
+      }
+     
+       else if($user_data['password'] === $password && $user_data['user_type'] === 'admin')
+      {
+        $_SESSION['user_id'] = $user_data['user_id'];
+        header('location:adminportal.php');
+        die; 
+      }
+     
+      else
+      {
+        $error = "username or password incorrect.";
+      }
+    }
+  }
+
+  
+}
  
-//  if(isset($_SESSION['auth']))
-//  {
-//      if(!isset($_SESSION['message'])){
-//          $_SESSION['message'] = "You are already logged In";
-//      }
-//      header("Location: index.php");
-//      exit(0);
-//  }
 
-// // include('function.php');
+//----------------iiii-----------------------------
 
-// $message = "";
+// $error = "";
 // if (isset($_POST['submit'])) {
 
 //   global $con; // call database - needed every time you want to connect to the database
 //   $username = $_POST['user_name'];
 //   $password = $_POST['user_password'];
-//   print_r($_POST);
+  
+//   //print_r($_POST);
 
 
-//   $query = "SELECT * FROM users WHERE username = '{$username}'" . " AND password = '{$password}' limit 1"; // checks both username and password in one go
+//   $query = "SELECT * FROM users WHERE user_name = '{$username}'" . " AND password = '{$password}' AND user_type limit 1"; // checks both username and password in one go
 //   $result = mysqli_query($con, $query);
 
 //   // check if it exists then validation after 
-//   if (mysqli_num_rows($result) > 0) {
-//     header("refresh:2; url=adminportal.php"); //this is the correct path to home page ../view/home.php
+//   if($result)
+//   {
+//   // if (mysqli_num_rows($result) > 0) {
+//   //   header("location:admin_home.php"); //this is the correct path to home page ../view/home.php
 
 //     //assign sessions here
-//     while ($row = mysqli_fetch_assoc($result)) {
+//     while ($row = mysqli_fetch_array($result))
+//      {
 //       $_SESSION['user_name'] = $username;
 //       $_SESSION['id'] = $row['user_id'];
-//       //$_SESSION['user_role'] = $row['user_role']; to check if they are admin or a normal user
+//       $_SESSION['user_type'] = $row['user_type']; //to check if they are admin or a normal user
 //     }
 //     $message =  "login successful";
 //   } else if (!empty($username) && !empty($password)) {
 //     $message = "Incorrect username or password";
 //   }
+// }
 // }
 
 ?>
@@ -70,6 +129,11 @@
 
 
 <body class="font-serif bg-[url('../images/bg1.jpg')]">
+
+<!-- error style -->
+<style>.error {color:red;} </style>
+
+
   <nav class=" p-1 lg:p-2  bg-[#353434] shadow lg:flex lg:items-center lg:justify-between w-full ">
     <div class="flex justify-between items-center ">
       <span class="text-2xl font-[Poppins] cursor-pointer text-white">
@@ -148,25 +212,23 @@
 
 <div class="border-2 p-6 mx-6 md:w-[500px] md:mx-auto text-light bg-[#353434]">
   
-  <form class="text-center" method="post" enctype="multipart/form-data" action="logincode.php">
-    <div>
-      <?php
-      echo $message;
-      ?>
-    </div>
+  <form class="text-center" method="post" enctype="multipart/form-data" action="member/user_home.php">
+  <span class="error"><?php  echo $error?></span>
+
     <div class="mb-3">
       <label for="username" class="form-label">User Name</label>
       <input type="text" class="form-control" id="inputUsername" name="user_name">
-
+      
     </div>
     <div class="mb-3">
       <label for="exampleInputPassword1" class="form-label">Password</label>
       <input type="password" class="form-control" id="exampleInputPassword1" name="user_password">
+      
     </div>
     <button type="submit" class="btn btn-primary btn btn-primary bg-info border-none" name="submit">Submit</button>
   </form>
   <br>
-  <p class="text-center">Already have an account with us? <a class="text-warning p-2 rounded-xl" href="signup.php">Register</a> here.</p>
+  <p class="text-center">Don't have an account with us? <a class="text-warning p-2 rounded-xl" href="signup.php">Register</a> here.</p>
 </div>
 <?php
 include("public/view/footer.php");

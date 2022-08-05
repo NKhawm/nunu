@@ -2,14 +2,14 @@
 session_start();
 include("public/view/header.php");
 include("public/model/connection.php");
-include("public/control/function.php");
+//include("public/control/function.php");
 // $user_data = check_login($con);
 
 ?>
  <section class="pt-[80px] md:pt-[120px] h-[30vh] md:pt-8">
         <div class="content px-6 md:w-full m-auto ">
             <!-- <h1 class="text-center text-5xl font-semibold mb-2 ">"မင်္ဂလာပါ"</h1> -->
-            <h2 class="text-center text-xl md:text-xl font-bold  md:mb-2"> မင်္ဂလာပါ <?php echo $_SESSION['user_name']; ?> <br> NuNu' Kitchen and Lifestyle ကနေကြိုဆိုပါတယ်..</h2><br>
+            <h2 class="text-center text-xl md:text-xl font-bold  md:mb-2"> မင်္ဂလာပါ <?php //echo $_SESSION['user_name']; ?> <br> NuNu' Kitchen and Lifestyle ကနေကြိုဆိုပါတယ်..</h2><br>
             <p class="text-center text-md md:text-md md:mx-auto lg:w-[1000px] md:leading-loose">မိတ်ဆွေများ အားလုံး ကိုယ်စိတ်နှစ်ဖြာ ကျမ်းမာပါစေကြောင်း ဆုတောင်းပေးလိုက်ပါတယ်။ ဒီနေရာလေးမှာ မိခင်များအတွက်
                 ရည်ရွယ်လျက် အသိပညာများ၊ ကလေး လူကြီး များအတွက် ချက်နည်းပြုတ်နည်းများ၊ မုန့်မျိုးစုံလုပ်နည်းများနှင့် တခြားသော ဗဟုသုတများ တတ်နိုင်သမျှ ဝေမျှပေးမှာ ဖြစ်ပါတယ်၊၊</p>
         </div>

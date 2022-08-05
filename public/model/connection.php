@@ -14,6 +14,6 @@ if (!$con = mysqli_connect($dbhost, $dbuser, $dbpassword, $dbname)) {
     die("Failed to connect!");
 }
 
-else {
-    echo "<script>alert('connection sucessful')</script>";
-}
+// else {
+//     echo "<script>alert('connection sucessful')</script>";
+// }
