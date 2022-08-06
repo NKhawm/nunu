@@ -3,7 +3,7 @@ session_start();
 include('public/model/connection.php');
 global $con;
 include('function.php');
-$error="";
+//$error="";
 // if(isset($_POST['submit']))
 // {
 //   $name=$_POST['user_name'];
@@ -26,80 +26,84 @@ $error="";
 
 // }
 
-//----------------------------mmmm--------------------
-if ($_SERVER['REQUEST_METHOD'] == "POST")
-{
-  $name=$_POST['user_name'];
-  $password=$_POST['user_password'];
-  if(!empty($name) && !empty($password))
-  {
-    //read form database
-    $query="SELECT * FROM users WHERE user_name='".$name."' AND password='".$password."' AND user_type='' limit 1";
-    $result=mysqli_query($con, $query);
+//----------------------------mmmm-----------------------------
 
-    if($result && mysqli_num_rows($result) > 0)
-    {
-      $user_data = mysqli_fetch_assoc($result);
+// if ($_SERVER['REQUEST_METHOD'] == "POST")
+// {
+//   $name=$_POST['user_name'];
+//   $password=$_POST['user_password'];
+  
+//     //read form database
+//     $query="SELECT * FROM users WHERE user_name='".$name."' AND password='".$password."' AND user_type='' limit 1";
+    
+//     $result=mysqli_query($con, $query);
 
-      if($user_data['password'] === $password  && $user_data['user_type'] === 'user' )
-      {
-        $_SESSION['user_id'] = $user_data['user_id'];
-        header('location:member/user_home.php');
-        die;
-      }
+//     if($result && mysqli_num_rows($result) > 0)
+//     {
+//       $user_data = mysqli_fetch_assoc($result);
+
+//       if($user_data['password'] === $password  && $user_data['user_type'] === 'user' )
+//       {
+//         $_SESSION['user_id'] = $user_data['user_id'];
+//         $_SESSION['user_type']=$user_data['user_type'];
+//         header('location:member/user_home.php');
+//         die;
+//       }
      
-       else if($user_data['password'] === $password && $user_data['user_type'] === 'admin')
-      {
-        $_SESSION['user_id'] = $user_data['user_id'];
-        header('location:adminportal.php');
-        die; 
-      }
+//        else if($user_data['password'] === $password && $user_data['user_type'] === 'admin')
+//       {
+//         $_SESSION['user_id'] = $user_data['user_id'];
+//         $_SESSION['user_type']=$user_data['user_type'];
+//         header('location:adminportal.php');
+//         die; 
+//       }
      
-      else
-      {
-        $error = "username or password incorrect.";
-      }
-    }
-  }
+//       else
+//       {
+//         $error = "username or password incorrect.";
+//       }
+//     }
+  
 
   
-}
+//}
  
 
 //----------------iiii-----------------------------
 
-// $error = "";
-// if (isset($_POST['submit'])) {
+$message="";
+if (isset($_POST['submit'])) {
 
-//   global $con; // call database - needed every time you want to connect to the database
-//   $username = $_POST['user_name'];
-//   $password = $_POST['user_password'];
+  global $con;
+  $username = $_POST['user_name'];
+  $password = $_POST['user_password'];
+  $usertype = $_POST ['user_type'];
   
-//   //print_r($_POST);
+  //print_r($_POST);
 
 
-//   $query = "SELECT * FROM users WHERE user_name = '{$username}'" . " AND password = '{$password}' AND user_type limit 1"; // checks both username and password in one go
-//   $result = mysqli_query($con, $query);
+  $query = "SELECT * FROM users WHERE user_name = '{$username}'" . " AND password = '{$password}' AND user_type = '{$usertype}' limit 1"; // checks both username and password in one go
+  $result = mysqli_query($con, $query);
 
-//   // check if it exists then validation after 
-//   if($result)
-//   {
-//   // if (mysqli_num_rows($result) > 0) {
-//   //   header("location:admin_home.php"); //this is the correct path to home page ../view/home.php
+  // check if it exists then validation after 
+  if($result)
+  {
+  if (mysqli_num_rows($result) > 0) {
+     header("location:admin/admin_home.php"); //this is the correct path to home page ../view/home.php
 
-//     //assign sessions here
-//     while ($row = mysqli_fetch_array($result))
-//      {
-//       $_SESSION['user_name'] = $username;
-//       $_SESSION['id'] = $row['user_id'];
-//       $_SESSION['user_type'] = $row['user_type']; //to check if they are admin or a normal user
-//     }
-//     $message =  "login successful";
-//   } else if (!empty($username) && !empty($password)) {
-//     $message = "Incorrect username or password";
-//   }
-// }
-// }
+    //assign sessions here
+    while ($row = mysqli_fetch_array($result))
+     {
+      $_SESSION['user_name'] = $username;
+      $_SESSION['id'] = $row['user_id'];
+      $_SESSION['user_type'] = $row['user_type']; //to check if they are admin or a normal user
+    }
+    $message =  "login successful";
+  } else if (!empty($username) && !empty($password)) {
+    $message = "User name or password incorrect.";
+  }
+}
+}
 
 ?>
 <!DOCTYPE html>
@@ -134,86 +138,82 @@ if ($_SERVER['REQUEST_METHOD'] == "POST")
 <style>.error {color:red;} </style>
 
 
-  <nav class=" p-1 lg:p-2  bg-[#353434] shadow lg:flex lg:items-center lg:justify-between w-full ">
-    <div class="flex justify-between items-center ">
-      <span class="text-2xl font-[Poppins] cursor-pointer text-white">
-        <a href="home.php"><img class="h-10 lg:h-12 xl:h-14 " src="public/images/logo.png"></a>
+  <!-- Nav bar -->
+<nav class=" p-1 lg:p-2  bg-[#353434] shadow lg:flex lg:items-center lg:justify-between w-full ">
+        <div class="flex justify-between items-center ">
+          <span class="text-2xl font-[Poppins] cursor-pointer text-white">
+            <a href="home.php"><img class="h-10 lg:h-12 xl:h-14 "
+              src="public/images/logo.png"></a>
+           
+          </span>
+    
+          <span class=" text-4xl xl:text-5xl cursor-pointer mx-2 lg:hidden lg:block">
+            <span class="iconify text-[#00adb6]" onclick="Menu(this)" data-icon="fa6-solid:burger"></span>
+            <!-- <ion-icon name="menu" onclick="Menu(this)"></ion-icon> -->
+          </span>
+        </div>
+    
+        <ul class=" text-white bg-black -mt-4 lg:bg-[#353434] lg:flex lg:items-center   lg:z-auto lg:static absolute text-white w-full left-0 lg:w-auto lg:py-0 py-4 lg:pl-0 pl-7 lg:opacity-100 opacity-0 top-[-400px] transition-all ease-in duration-500  ">
+          <li class="mx-2 my-1 lg:my-0">
+            <a href="home.php" class="md:text-md hover:text-[#ffd230] duration-500">
+              <ion-icon class="text-lg text-[#27b4ae] mr-1" name="home">
+              </ion-icon>Home (အိမ်)</a>
+            
+          </li>
 
-      </span>
+          <li class="mx-2 my-1 lg:my-0">
+            <a href="recipes.php" class="  md:text-md hover:text-[#ffd230] duration-500">
+              <ion-icon class="text-lg text-[#27b4ae] mr-1" name="receipt">
+              </ion-icon>Recipes (ချက်ပြုတ်နည်းများ)</a>
+          </li>
 
-      <span class=" text-4xl xl:text-5xl cursor-pointer mx-2 lg:hidden lg:block">
-        <span class="iconify text-[#00adb6]" onclick="Menu(this)" data-icon="fa6-solid:burger"></span>
-        <!-- <ion-icon name="menu" onclick="Menu(this)"></ion-icon> -->
-      </span>
-    </div>
+          <li class="mx-2 my-1 lg:my-0">
+            <a href="#" class="md:text-md hover:text-[#ffd230] duration-500">
+              <ion-icon class="text-lg text-[#27b4ae] mr-1" name="videocam">
+              </ion-icon>Videos (ဗီဒီယိုများ)</a>
+          </li>
 
-    <ul class=" text-white bg-black -mt-8 lg:bg-[#353434] lg:flex lg:items-center   lg:z-auto lg:static absolute text-white w-full left-0 lg:w-auto lg:py-0 py-4 lg:pl-0 pl-7 lg:opacity-100 opacity-0 top-[-400px] transition-all ease-in duration-500 ">
-      <li class="mx-2 my-1 lg:my-0">
-        <a href="home.php" class="md:text-md hover:text-[#ffd230] duration-500">
-          <ion-icon class="text-lg text-[#27b4ae] mr-1" name="home">
-          </ion-icon>Home (အိမ်)
-        </a>
+          <li class="mx-2 my-1 lg:my-0">
+            <a href="#" class="md:text-md hover:text-[#ffd230] duration-500">
+              <ion-icon class="text-lg text-[#27b4ae] mr-1" name="reader">
+              </ion-icon>Blogs (ဘလော့ဂ်များ)</a>
+          </li>
 
-      </li>
-
-      <li class="mx-2 my-1 lg:my-0">
-        <a href="recipes.php" class="  md:text-md hover:text-[#ffd230] duration-500">
-          <ion-icon class="text-lg text-[#27b4ae] mr-1" name="receipt">
-          </ion-icon>Recipes (ချက်ပြုတ်နည်းများ)
-        </a>
-      </li>
-
-      <li class="mx-2 my-1 lg:my-0">
-        <a href="#" class="md:text-md hover:text-[#ffd230] duration-500">
-          <ion-icon class="text-lg text-[#27b4ae] mr-1" name="videocam">
-          </ion-icon>Videos (ဗီဒီယိုများ)
-        </a>
-      </li>
-
-      <li class="mx-2 my-1 lg:my-0">
-        <a href="#" class="md:text-md hover:text-[#ffd230] duration-500">
-          <ion-icon class="text-lg text-[#27b4ae] mr-1" name="reader">
-          </ion-icon>Blogs (ဘလော့ဂ်များ)
-        </a>
-      </li>
-
-      <li class="mx-2 mt-1 mb-3 lg:my-0">
-        <a href="#" class="md:text-md hover:text-[#ffd230] duration-500">
-          <ion-icon class="text-lg text-[#27b4ae] mr-1" name="chatbubbles">
-          </ion-icon>Contact (ဆက်သွယ်ရန်)
-        </a>
-      </li>
-
-      <li class=" bg-[#27b4ae] w-[100px] md:text-md text-gray-700 font-[Poppins] pointer-cursor duration-500 px-4 py-2 mx-2 mt-2 hover:bg-[#ffafd7] hover:text-black rounded-full "><a href="signup.php"> 
+          <li class="mx-2 mt-1 mb-3 lg:my-0">
+            <a href="#" class="md:text-md hover:text-[#ffd230] duration-500">
+              <ion-icon class="text-lg text-[#27b4ae] mr-1" name="chatbubbles">
+              </ion-icon>Contact (ဆက်သွယ်ရန်)</a>
+          </li>
+    
+          <button class=" bg-[#27b4ae] w-[fit] md:text-md text-gray-700 font-[Poppins] pointer-cursor duration-500 px-4 py-2 mx-2 hover:bg-[#ffafd7] hover:text-black rounded-full "><a href="signup.php"> 
         Register</a>
-</li>
-      <li class="bg-[#27b4ae] w-[100px] md:text-md text-gray-700 font-[Poppins] pointer-cursor duration-500 px-4 py-2 mx-2 mt-2 hover:bg-[#ffafd7] hover:text-black rounded-full "><a href="login.php">
+</button>
+      <button class="bg-[#27b4ae]  md:text-md text-gray-700 font-[Poppins] pointer-cursor duration-500 px-4 py-2 mx-2 hover:bg-[#ffafd7] hover:text-black rounded-full "><a href="login.php">
         Log in </a>
-</li>
-
-    </ul>
-  </nav>
-
-
-  <script>
-    function Menu(e) {
-      let list = document.querySelector('ul');
-      e.name === 'menu' ? (e.name = "close",
-        list.classList.add('top-[80px]'),
-        list.classList.add('opacity-100')) : (e.name = "menu",
-        list.classList.remove('top-[80px]'),
-        list.classList.remove('opacity-100'))
-    }
-  </script>
-
+</button> 
+   
+        </ul>
+      </nav>
+    
+    
+      <script>
+        function Menu(e){
+          let list = document.querySelector('ul');
+          e.name === 'menu' ? (e.name = "close",
+          list.classList.add('top-[80px]') , 
+          list.classList.add('opacity-100')) :( e.name = "menu" ,
+          list.classList.remove('top-[80px]'),
+          list.classList.remove('opacity-100'))
+        }
+      </script>
 
 
 <h1 class="text-xl text-center my-4">Login</h1>
 
 <div class="border-2 p-6 mx-6 md:w-[500px] md:mx-auto text-light bg-[#353434]">
   
-  <form class="text-center" method="post" enctype="multipart/form-data" action="member/user_home.php">
-  <span class="error"><?php  echo $error?></span>
+  <form class="text-center" method="post" enctype="multipart/form-data" action="">
+  <span class="error"><?php  echo $message?></span>
 
     <div class="mb-3">
       <label for="username" class="form-label">User Name</label>
@@ -225,6 +225,15 @@ if ($_SERVER['REQUEST_METHOD'] == "POST")
       <input type="password" class="form-control" id="exampleInputPassword1" name="user_password">
       
     </div>
+    <label for="exampleInputPassword1" class="form-label">User Type</label>
+    <select class="form-select w-full h-9 text-dark rounded-sm " aria-label="Default select example" name="user_type">
+    <option value="user">Select user type</option> 
+    <option value="user">user</option>
+      <option value="admin">admin</option>
+ 
+</select>
+<br><br>
+    
     <button type="submit" class="btn btn-primary btn btn-primary bg-info border-none" name="submit">Submit</button>
   </form>
   <br>

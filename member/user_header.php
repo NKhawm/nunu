@@ -14,10 +14,10 @@
 </head>
 
   <body class="font-serif bg-local bg-[#E2E1DC] " >  
-  <nav class=" p-1 lg:p-2  bg-[#353434] shadow lg:flex lg:items-center lg:justify-between w-full ">
+  <nav class=" p-1 lg:py-0 lg:px-2 bg-[#353434] shadow lg:flex lg:items-center lg:justify-between w-full ">
         <div class="flex justify-between items-center ">
           <span class="text-2xl font-[Poppins] cursor-pointer text-white">
-            <a href="user_home.php"><img class="h-10 lg:h-12 xl:h-14 "
+            <a href="user_home.php"><img class="h-10 lg:h-16 xl:h-14 "
               src="../public/images/logo.png"></a>
            
           </span>
@@ -26,9 +26,10 @@
             <span class="iconify text-[#00adb6]" onclick="Menu(this)" data-icon="fa6-solid:burger"></span>
             <!-- <ion-icon name="menu" onclick="Menu(this)"></ion-icon> -->
           </span>
-        </div>
+          </div>
+        
     
-        <ul class=" text-white bg-black -mt-8 lg:bg-[#353434] lg:flex lg:items-center lg:inline-block lg:align-middle  lg:z-auto lg:static absolute text-white w-full left-0 lg:w-auto lg:py-0 py-4 lg:pl-0 pl-7 lg:opacity-100 opacity-0 top-[-400px] transition-all ease-in duration-500  ">
+        <ul class=" text-white bg-black -mt-8 lg:bg-[#353434] lg:flex lg:items-center  lg:z-auto lg:static absolute text-white w-full left-0 lg:w-auto lg:pt-10 py-4 lg:pl-0 pl-7 lg:opacity-100 opacity-0 top-[-400px] transition-all ease-in duration-500  ">
           <li class="mx-2 my-1 lg:my-0">
             <a href="home.php" class="md:text-md hover:text-[#ffd230] duration-500">
               <ion-icon class="text-lg text-[#27b4ae] mr-1" name="home">
@@ -60,18 +61,22 @@
               </ion-icon>Contact (ဆက်သွယ်ရန်)</a>
           </li>
     
-          <li class=" bg-[#27b4ae] w-[100px] md:text-md text-gray-700 font-[Poppins] pointer-cursor duration-500 px-4 py-2 mx-2 hover:bg-[#ffafd7] hover:text-black rounded-full "> Account
+          <!-- <li class=" bg-[#27b4ae] w-[100px] md:text-md text-gray-700 font-[Poppins] pointer-cursor duration-500 px-4 py-2 mx-2 hover:bg-[#ffafd7] hover:text-black rounded-full "> Account
         
 </li>
       <li class="bg-[#27b4ae] w-[100px] md:text-md text-gray-700 font-[Poppins] pointer-cursor duration-500 px-4 py-2 mx-2 hover:bg-[#ffafd7] hover:text-black rounded-full "><a href="../logout.php">
         Log out </a>
-</li>
-<!-- <button class="flex flex-col justify-center border" >
+</li> -->
+
+
+
+ <button class="flex flex-col justify-center border" >
 <span class="iconify text-3xl text-[#27b4ae] mx-auto" data-icon="line-md:account"></span>
 <span>My Account</span> 
-</button> -->
+</button> 
         </ul>
       </nav>
+     
     
     
       <script>

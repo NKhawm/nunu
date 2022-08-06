@@ -39,16 +39,16 @@ if (isset($_POST['submit']))
     
     //username
     $username = $_POST['user_name']; 
-    if(empty($username))
+    if (!preg_match("/^[a-zA-Z-' ]*$/",$username) && empty($username))
     {
-      $nameErr = "A valid user name is required.";  
+      $nameErr = "Only letter and white space allowed.";
     
     }
 
 
      // email
      $email = $_POST['email'];
-     if(!preg_match("/^[_a-z0-9-]+(\.[_a-z0-9-]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,})$/i" ,$email) && empty($email))
+     if (!filter_var($email, FILTER_VALIDATE_EMAIL) && empty($email))
      {
          $emailErr = "A valid email is required.";
      }
@@ -61,20 +61,18 @@ if (isset($_POST['submit']))
         $ageErr = "You have to be at least 13 years old to register.";
     }
 
-    //password
-    $password = $_POST['user_password'];
-    if($password < 8 && empty($password))
-    {
-        $passwordErr = "Password must contain at least 8 charater.";
-    }
-    if(!preg_match("/[A-Z]/i", $password))
-    {
-     $passwordErr = "Password must contain at least one capital letter.";
-    }
-    if(!preg_match("/[0-9]/",$password))
-    {
-     $passwordErr = "Password must contain at least one number.";
-   }
+     //password
+     $password = $_POST['user_password'];
+     $uppercase = preg_match('@[A-Z]@',$password);
+     $lowercase = preg_match('@[a-z]@', $password);
+     $number = preg_match('@[0-9]@', $password);
+     $specialChars = preg_match('@[^\w]@', $password);
+ 
+ if(!$uppercase || !$lowercase || !$number || !$specialChars || strlen($password) < 8) {
+     $passwordErr= 'Password should be at least 8 characters in length 
+     and should include at least one upper case letter, one number, 
+     and one special character.';
+ }
      //confirm password
     $confirmpwd = $_POST['confirm_password'];
     if ($password !== $confirmpwd)
@@ -146,12 +144,12 @@ if (isset($_POST['submit']))
               </ion-icon>Contact (ဆက်သွယ်ရန်)</a>
           </li>
     
-          <a href="signup.php"> <button class=" bg-[#27b4ae] md:text-md text-gray-700 font-[Poppins] pointer-cursor duration-500 px-4 py-2 mx-2 hover:bg-[#ffafd7] hover:text-black rounded-full "> 
-            Register
-          </button></a>
-          <a href="login.php"><button class="bg-[#27b4ae] md:text-md text-gray-700 font-[Poppins] pointer-cursor duration-500 px-4 py-2 mx-2 hover:bg-[#ffafd7] hover:text-black rounded-full ">
-            Log in
-          </button></a>
+          <button class=" bg-[#27b4ae] w-[fit] md:text-md text-gray-700 font-[Poppins] pointer-cursor duration-500 px-4 py-2 mx-2 hover:bg-[#ffafd7] hover:text-black rounded-full "><a href="signup.php"> 
+        Register</a>
+</button>
+      <button class="bg-[#27b4ae]  md:text-md text-gray-700 font-[Poppins] pointer-cursor duration-500 px-4 py-2 mx-2 hover:bg-[#ffafd7] hover:text-black rounded-full "><a href="login.php">
+        Log in </a>
+</button> 
    
         </ul>
       </nav>
@@ -204,13 +202,7 @@ if (isset($_POST['submit']))
     <span class="error"><?php if(isset($confirmErr)){ echo $confirmErr;}?></span>
   </div>
 
-  <!-- <div class="form-group">
-  <select class="form-select form-select-lg mb-3 text-dark w-full h-9 rounded-sm mt-4" aria-label=".form-select-lg example"name="user_type">
-  <option selected>User Type</option>
-  <option value="1">user</option>
-  <option value="2">admin</option>
-</select>
-</div> -->
+ 
 
   <!-- <div class="form-group">
   <label for="file">Profile Pic</label><br>

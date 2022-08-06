@@ -1,3 +1,4 @@
+
 <html lang="en">
 
 <head>
@@ -22,15 +23,85 @@
 </head>
 
   <body class="font-serif bg-local bg-black " > 
-<?php
-include("public/view/header.php");
-?>
+  
+  <nav class=" p-1 lg:p-2  bg-[#353434] shadow lg:flex lg:items-center lg:justify-between w-full ">
+        <div class="flex justify-between items-center ">
+          <span class="text-2xl font-[Poppins] cursor-pointer text-white">
+            <a href="home.php"><img class="h-10 lg:h-12 xl:h-14 "
+              src="public/images/logo.png"></a>
+           
+          </span>
+    
+          <span class=" text-4xl xl:text-5xl cursor-pointer mx-2 lg:hidden lg:block">
+            <span class="iconify text-[#00adb6]" onclick="Menu(this)" data-icon="fa6-solid:burger"></span>
+            <!-- <ion-icon name="menu" onclick="Menu(this)"></ion-icon> -->
+          </span>
+        </div>
+    
+        <ul class=" text-white bg-black lg:h-2 lg:bg-[#353434] lg:flex lg:items-center lg:inline-block lg:align-middle  lg:z-auto lg:static absolute text-white w-full left-0 lg:w-auto lg:py-0 py-4 lg:pl-0 pl-7 lg:opacity-100 opacity-0 top-[-400px] transition-all ease-in duration-500  ">
+          <li class="mx-2 my-1 lg:my-0">
+            <a href="home.php" class="md:text-md hover:text-[#ffd230] duration-500">
+              <ion-icon class="text-lg text-[#27b4ae] mr-1" name="home">
+              </ion-icon>Home (အိမ်)</a>
+            
+          </li>
+
+          <li class="mx-2 my-1 lg:my-0">
+            <a href="recipes.php" class="  md:text-md hover:text-[#ffd230] duration-500">
+              <ion-icon class="text-lg text-[#27b4ae] mr-1" name="receipt">
+              </ion-icon>Recipes (ချက်ပြုတ်နည်းများ)</a>
+          </li>
+
+          <li class="mx-2 my-1 lg:my-0">
+            <a href="#" class="md:text-md hover:text-[#ffd230] duration-500">
+              <ion-icon class="text-lg text-[#27b4ae] mr-1" name="videocam">
+              </ion-icon>Videos (ဗီဒီယိုများ)</a>
+          </li>
+
+          <li class="mx-2 my-1 lg:my-0">
+            <a href="#" class="md:text-md hover:text-[#ffd230] duration-500">
+              <ion-icon class="text-lg text-[#27b4ae] mr-1" name="reader">
+              </ion-icon>Blogs (ဘလော့ဂ်များ)</a>
+          </li>
+
+          <li class="mx-2 mt-1 mb-3 lg:my-0">
+            <a href="#" class="md:text-md hover:text-[#ffd230] duration-500">
+              <ion-icon class="text-lg text-[#27b4ae] mr-1" name="chatbubbles">
+              </ion-icon>Contact (ဆက်သွယ်ရန်)</a>
+          </li>
+    
+          <button class=" bg-[#27b4ae] w-[100px] md:text-md text-gray-700 font-[Poppins] pointer-cursor duration-500 px-4 py-2 mx-2 hover:bg-[#ffafd7] hover:text-black rounded-full "><a href="signup.php">
+        Register </a> 
+        
+</button>
+      <button class="bg-[#27b4ae] w-[100px] md:text-md text-gray-700 font-[Poppins] pointer-cursor duration-500 px-4 py-2 mx-2 hover:bg-[#ffafd7] hover:text-black rounded-full "><a href="login.php">
+        login </a>
+</button>
+<!-- <button class="flex flex-col justify-center border" >
+<span class="iconify text-3xl text-[#27b4ae] mx-auto" data-icon="line-md:account"></span>
+<span>My Account</span> 
+</button> -->
+        </ul>
+      </nav>
+    
+    
+      <script>
+        function Menu(e){
+          let list = document.querySelector('ul');
+          e.name === 'menu' ? (e.name = "close",
+          list.classList.add('top-[80px]') , 
+          list.classList.add('opacity-100')) :( e.name = "menu" ,
+          list.classList.remove('top-[80px]'),
+          list.classList.remove('opacity-100'))
+        }
+      </script>
+  
 
       <!-- sub nav -->
       
       <ul class="nav nav-pills bg-gray-900 ">
         <li class="nav-item">
-          <a class="nav-link active bg-info text-sm " href="#">မြန်မာအစားစာ</a>
+          <a class="nav-link active bg-info text-sm " href="mc_collection">မြန်မာအစားစာ</a>
         </li>
         <li class="nav-item text-light">
           <a class="nav-link text-sm  " href="#">အနောက်တိုင်းအစားအစာ</a>
@@ -52,6 +123,7 @@ include("public/view/header.php");
         </li> -->
       </ul>
 
+
         <!-- Myanmar cuisine collection-->
         <section class="my-16 mx-2 flex flex-col">
             <div >
@@ -70,7 +142,7 @@ include("public/view/header.php");
                
     
                 <!-- grid -->
-                <div class="container my-28 grid__wrapper grid grid-cols-[repeat(auto-fit,_minmax(300px,_1fr))] gap-16">
+                <div class="container my-28 grid__wrapper grid grid-cols-[repeat(auto-fit,_minmax(300px,_1fr))] gap-16 " id="mc_collection">
                     <!-- Fish noodle soup -->
                     <figure class="recipe-group mx-auto">
                         <img class="rounded-t-2xl object-cover w-[25rem] h-[22rem]" src="public/images/mohinga-gde3f2ed3a_640.jpg"
@@ -101,8 +173,8 @@ include("public/view/header.php");
         You have to be a member to view this content. Register or Signin below.
       </div>
       <div class="modal-footer">
-        <a href="#"><button type="button" class="btn btn-warning text-black bg-warning border" data-dismiss="modal">Register</button></a>
-        <a href="#"><button type="button" class="btn btn-warning text-black bg-warning border">Signin</button></a>
+        <a href="signup.php"><button type="button" class="btn btn-warning text-black bg-warning border" data-dismiss="modal">Register</button></a>
+        <a href="login.php"><button type="button" class="btn btn-warning text-black bg-warning border">Signin</button></a>
       </div>
     </div>
   </div>
@@ -142,8 +214,8 @@ include("public/view/header.php");
         You have to be a member to view this content. Register or Signin below.
       </div>
       <div class="modal-footer">
-        <a href="#"><button type="button" class="btn btn-warning text-black bg-warning border" data-dismiss="modal">Register</button></a>
-        <a href="#"><button type="button" class="btn btn-warning text-black bg-warning border">Signin</button></a>
+        <a href="signup.php"><button type="button" class="btn btn-warning text-black bg-warning border" data-dismiss="modal">Register</button></a>
+        <a href="login.php"><button type="button" class="btn btn-warning text-black bg-warning border">Signin</button></a>
       </div>
     </div>
   </div>
@@ -183,8 +255,8 @@ include("public/view/header.php");
         You have to be a member to view this content. Register or Signin below.
       </div>
       <div class="modal-footer">
-        <a href="#"><button type="button" class="btn btn-warning text-black bg-warning border" data-dismiss="modal">Register</button></a>
-        <a href="#"><button type="button" class="btn btn-warning text-black bg-warning border">Signin</button></a>
+        <a href="signup.php"><button type="button" class="btn btn-warning text-black bg-warning border" data-dismiss="modal">Register</button></a>
+        <a href="login.php"><button type="button" class="btn btn-warning text-black bg-warning border">Signin</button></a>
       </div>
     </div>
   </div>
@@ -223,8 +295,8 @@ include("public/view/header.php");
         You have to be a member to view this content. Register or Signin below.
       </div>
       <div class="modal-footer">
-        <a href="#"><button type="button" class="btn btn-warning text-black bg-warning border" data-dismiss="modal">Register</button></a>
-        <a href="#"><button type="button" class="btn btn-warning text-black bg-warning border">Signin</button></a>
+        <a href="signup.php"><button type="button" class="btn btn-warning text-black bg-warning border" data-dismiss="modal">Register</button></a>
+        <a href="login.php"><button type="button" class="btn btn-warning text-black bg-warning border">Signin</button></a>
       </div>
     </div>
   </div>
@@ -263,8 +335,8 @@ include("public/view/header.php");
         You have to be a member to view this content. Register or Signin below.
       </div>
       <div class="modal-footer">
-        <a href="#"><button type="button" class="btn btn-warning text-black bg-warning border" data-dismiss="modal">Register</button></a>
-        <a href="#"><button type="button" class="btn btn-warning text-black bg-warning border">Signin</button></a>
+        <a href="signup.php"><button type="button" class="btn btn-warning text-black bg-warning border" data-dismiss="modal">Register</button></a>
+        <a href="login.php"><button type="button" class="btn btn-warning text-black bg-warning border">Signin</button></a>
       </div>
     </div>
   </div>
@@ -303,8 +375,8 @@ include("public/view/header.php");
         You have to be a member to view this content. Register or Signin below.
       </div>
       <div class="modal-footer">
-        <a href="#"><button type="button" class="btn btn-warning text-black bg-warning border" data-dismiss="modal">Register</button></a>
-        <a href="#"><button type="button" class="btn btn-warning text-black bg-warning border">Signin</button></a>
+        <a href="signup.php"><button type="button" class="btn btn-warning text-black bg-warning border" data-dismiss="modal">Register</button></a>
+        <a href="login.php"><button type="button" class="btn btn-warning text-black bg-warning border">Signin</button></a>
       </div>
     </div>
   </div>
@@ -343,8 +415,8 @@ Click here for full recipe
       You have to be a member to view this content. Register or Signin below.
     </div>
     <div class="modal-footer">
-      <a href="#"><button type="button" class="btn btn-warning text-black bg-warning border" data-dismiss="modal">Register</button></a>
-      <a href="#"><button type="button" class="btn btn-warning text-black bg-warning border">Signin</button></a>
+      <a href="signup.php"><button type="button" class="btn btn-warning text-black bg-warning border" data-dismiss="modal">Register</button></a>
+      <a href="login.php"><button type="button" class="btn btn-warning text-black bg-warning border">Signin</button></a>
     </div>
   </div>
 </div>
@@ -383,8 +455,8 @@ Click here for full recipe
     You have to be a member to view this content. Register or Signin below.
   </div>
   <div class="modal-footer">
-    <a href="#"><button type="button" class="btn btn-warning text-black bg-warning border" data-dismiss="modal">Register</button></a>
-    <a href="#"><button type="button" class="btn btn-warning text-black bg-warning border">Signin</button></a>
+    <a href="signup.php"><button type="button" class="btn btn-warning text-black bg-warning border" data-dismiss="modal">Register</button></a>
+    <a href="login.php"><button type="button" class="btn btn-warning text-black bg-warning border">Signin</button></a>
   </div>
 </div>
 </div>
