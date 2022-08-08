@@ -51,6 +51,7 @@ include('../../public/view/header.php');
                   }?>
                     </a>
                     <ul class="dropdown-menu">
+                    <li><a class="dropdown-item" href="../adminportal.php">Dashboard</a></li>
                       
                       <li><a class="dropdown-item" href="../../logout.php">Log out</a></li>
             
@@ -61,7 +62,7 @@ include('../../public/view/header.php');
   </div>
 </nav>
 <!-- section -->
-<section>
+<section class="min-h-[80vh]">
       <h2 class="text-4xl text-center mx-auto mt-6">All users</h2>
       <!-- <a href="admin_add.php" class="btn btn-info text-dark ml-[90px] mb-2 " role="button" data-bs-toggle="button"> + add user</a> -->
       <button class="mb-2 ml-[90px] border p-2 btn btn-info rounded-md"><a href="add_new_user.php">+ Add User</a></button>
@@ -70,7 +71,7 @@ include('../../public/view/header.php');
       <div class="container">
    
 <!-- Table -->
-<table class="table table-success table-striped ">
+<table class="table bg-[#BBCFCB] table-striped ">
   <thead>
     <tr>
       <th scope="col" >User ID</th>

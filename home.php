@@ -63,7 +63,7 @@ include("public/model/connection.php");
           </li>
 
           <li class="mx-2 mt-1 mb-3 lg:my-0">
-            <a href="#" class="md:text-md hover:text-[#ffd230] duration-500">
+            <a href="mailto:nunu.kitchen2020@gmail.com" class="md:text-md hover:text-[#ffd230] duration-500">
               <ion-icon class="text-lg text-[#27b4ae] mr-1" name="chatbubbles">
               </ion-icon>Contact (ဆက်သွယ်ရန်)</a>
           </li>
@@ -94,6 +94,7 @@ include("public/model/connection.php");
       </script>
   
  <section class="pt-[80px] md:pt-[120px] h-[30vh] md:pt-8">
+   
         <div class="content px-6 md:w-full m-auto ">
             <!-- <h1 class="text-center text-5xl font-semibold mb-2 ">"မင်္ဂလာပါ"</h1> -->
             <h2 class="text-center text-xl md:text-xl font-bold  md:mb-2"> မင်္ဂလာပါ <?php //echo $_SESSION['user_name']; ?> <br> NuNu' Kitchen and Lifestyle ကနေကြိုဆိုပါတယ်..</h2><br>

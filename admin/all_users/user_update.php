@@ -86,6 +86,7 @@ include('../../public/view/header.php');
                   }?>
                     </a>
                     <ul class="dropdown-menu">
+                    <li><a class="dropdown-item" href="../adminportal.php">Dashboard</a></li>
                       
                       <li><a class="dropdown-item" href="../logout.php">Log out</a></li>
             

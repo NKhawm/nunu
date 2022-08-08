@@ -85,7 +85,7 @@ if(!$uppercase || !$lowercase || !$number || !$specialChars || strlen($password)
 <!-- nav bar -->
   <nav class="navbar navbar-expand-lg bg-[#353434] ">
   <div class="container-fluid">
-    <a class="navbar-brand " href="#"><img class="h-10 lg:h-12 xl:h-14 " src="../public/images/logo.png" alt="logo"></a>
+    <a class="navbar-brand " href="../../member/user_home.php"><img class="h-10 lg:h-12 xl:h-14 " src="../../admin/update_content/recipes/images/logo.png" alt="logo"></a>
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
@@ -123,6 +123,7 @@ if(!$uppercase || !$lowercase || !$number || !$specialChars || strlen($password)
                   }?>
                     </a>
                     <ul class="dropdown-menu">
+                    <li><a class="dropdown-item" href="../adminportal.php">Dashboard</a></li>
                       
                       <li><a class="dropdown-item" href="../logout.php">Log out</a></li>
             
@@ -136,31 +137,31 @@ if(!$uppercase || !$lowercase || !$number || !$specialChars || strlen($password)
   <div class="container max-w-[500px]  text-center border-2 p-6 mt-6">
       
   <form method="post">
-  <div class="form-group">
+  <div class="form-group text-xl">
     <label for="name">User Name</label>
     <input type="text" class="form-control" placeholder="Name" name="name">
     <span class="error"><?php if(isset($nameErr)){ echo $nameErr;}?></span>
   </div>
 
-  <div class="form-group">
+  <div class="form-group text-xl">
     <label for="department">Email Adress</label>
     <input type="text" class="form-control"  name="email">
     <span class="error"><?php if(isset($emailErr)){ echo $emailErr;}?></span>
   </div>
   
-  <div class="form-group">
+  <div class="form-group text-xl">
     <label for="phone">Age</label>
     <input type="text" class="form-control" placeholder="Age" name="age">
     <span class="error"><?php if(isset($ageErr)){ echo $ageErr;}?></span>
   </div>
 
-  <div class="form-group">
+  <div class="form-group text-xl">
     <label for="phone">Password</label>
     <input type="text" class="form-control" placeholder="Password" name="password">
     <span class="error"><?php if(isset($passwordErr)){ echo $passwordErr;}?></span>
   </div>
 
-  <div class="form-group">
+  <div class="form-group text-xl">
     <label for="phone">User Type</label>
     <select  class="form-control" name="user_type">
         <option value="Select User Type">Select User Type</option>
@@ -170,7 +171,7 @@ if(!$uppercase || !$lowercase || !$number || !$specialChars || strlen($password)
   </div>
   
   
-  <button type="submit" class="btn  bg-info mt-6" name="submit">Submit</button>
+  <button type="submit" class="btn  bg-info mt-6 text-xl" name="submit">Submit</button>
 </form>
 </div>
 

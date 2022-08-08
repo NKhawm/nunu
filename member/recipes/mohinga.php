@@ -70,7 +70,7 @@ global $con;
           </li>
 
           <li class="mx-2 mt-1 mb-3 lg:my-0">
-            <a href="#" class="md:text-md hover:text-[#ffd230] duration-500">
+            <a href="mailto:nunu.kitchen2020@gmail.com" class="md:text-md hover:text-[#ffd230] duration-500">
               <ion-icon class="text-lg text-[#27b4ae] mr-1" name="chatbubbles">
               </ion-icon>Contact (ဆက်သွယ်ရန်)</a>
           </li>

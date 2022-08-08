@@ -49,7 +49,7 @@ global $con; //database connection
           Setting 
           </a>
           <ul class="dropdown-menu">
-            <li><a class="dropdown-item" href="#">Profile</a></li>
+          <li><a class="dropdown-item" href="adminportal.php">Dashboard</a></li>
            
             <li><a class="dropdown-item" href="../logout.php">Log out</a></li>
           </ul>
@@ -64,7 +64,7 @@ global $con; //database connection
 //checks if the user is admin
 if (isset($_SESSION['user_type']) && $_SESSION['user_type'] !=='admin') {
   ?>
-  <h2>Sorry <small><?php echo $_SESSION['user_name']; ?> </small> you donot have acess to this page.  <a href='../admin/admin_home.php'>Click here to go home.</a></h2>
+  <h2>Sorry <small><?php echo $_SESSION['user_name']; ?> </small> you donot have acess to this page.  <a href='../member/user_home.php'>Click here to go home.</a></h2>
   <?php
     
 //if user is not admin then this error message will show

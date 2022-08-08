@@ -71,7 +71,7 @@ global $con;
           </li>
 
           <li class="mx-2 mt-1 mb-3 lg:my-0">
-            <a href="#" class="md:text-md hover:text-[#ffd230] duration-500">
+            <a href="mailto:nunu.kitchen2020@gmail.com" class="md:text-md hover:text-[#ffd230] duration-500">
               <ion-icon class="text-lg text-[#27b4ae] mr-1" name="chatbubbles">
               </ion-icon>Contact (ဆက်သွယ်ရန်)</a>
           </li>
@@ -290,26 +290,26 @@ Click here for full recipe
 
 
 
-<footer class="w-full bg-[#27b4ae] h-auto ">
+  <footer class="w-full bg-[#27b4ae] h-auto ">
     <div class="footer__wrapper flex flex-col mt-4 z-10 relative ">
         <div class="flex flex-wrap flex-col text-center my-20">
             <h3 class=" text-2xl md:text-4xl font-bold text-gray-700 md:leading-loose">မေးစရာ၊ အကြံပြုစရာ </h3>
             <p class=" text-lg md:text-xl mb-16">များရှိရင် ဆက်သွယ်နိုင်ပါသည်။</p>
             <button class="w-48 h-12 text-xl text-gray-700 font-semibold
-            bg-[#ffafd7] m-auto rounded-full hover:bg-[#ffc331] "> <a href="#"></a> ဆက်သွယ်ရန်</button>
+            bg-[#ffafd7] m-auto rounded-full hover:bg-[#ffc331] "> <a href="mailto:nunu.kitchen2020@gmail.com"> ဆက်သွယ်ရန်</a></button>
         </div>
 
         <div class="flex flex-wrap flex-col text-center -pt-[180px] ">
             <p class="font-bold">Follow us on social media:</p>
             <div class="icon-wrapper mt-2">
                 <button class="btn mr-4	w-7">
-                    <ion-icon class="text-2xl  text-[#ffafd7] " name="logo-instagram"><a href="https://www.facebook.com/Nu-Nu-Kitchen-မေမေ့-မီးဖိုချောင်-104741924420555/?ref=pages_you_manage"></ion-icon></a></button>
+                <a href="https://www.instagram.com/nunukitchen2020/"><ion-icon class="text-2xl  text-[#ffafd7] " name="logo-instagram"></ion-icon></a></button>
                 <button class="btn mr-4  w-7">
-                    <ion-icon class="text-2xl  text-[#ffafd7] " name="logo-youtube"></ion-icon></button>
+                <a href="https://www.youtube.com/channel/UCjgrVfmv48hdVW4QL6Qnd3w"><ion-icon class="text-2xl  text-[#ffafd7] " name="logo-youtube"></ion-icon></a></button>
                 <button class="btn mr-4 w-7">
-                    <ion-icon class="text-2xl  text-[#ffafd7] "name="logo-facebook"></ion-icon></button>
+                    <a href="https://www.facebook.com/Nu-Nu-Kitchen-မေမေ့-မီးဖိုချောင်-104741924420555"><ion-icon class="text-2xl  text-[#ffafd7] "name="logo-facebook"></ion-icon></a></button>
                 <button class="btn mr-4  w-7">
-                    <ion-icon class="text-2xl  text-[#ffafd7] " name="logo-tiktok"></ion-icon></button>
+                    <a href=""><ion-icon class="text-2xl  text-[#ffafd7] " name="logo-tiktok"></ion-icon></a></button>
                 
             </div>
         </div>  <br><br>
